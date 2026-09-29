@@ -1052,6 +1052,26 @@
   },
   {
     "type": "dropdown",
+    "property": "wireframe.tab.corner_shape",
+    "label": "Corner shape for tabs",
+    "value": "string",
+    "default": "round",
+    "options": [
+      {
+        "value": "round",
+        "label": "Round (Classic)"
+      },
+      {
+        "value": "squircle",
+        "label": "Squircle (Zen Default)"
+      }
+    ]
+  },
+  {
+    "type": "separator"
+  },
+  {
+    "type": "dropdown",
     "property": "wireframe.essen.borders",
     "label": "Border styling for essentials",
     "value": "string",
@@ -1107,6 +1127,26 @@
       {
         "value": 50,
         "label": "Round"
+      }
+    ]
+  },
+  {
+    "type": "separator"
+  },
+  {
+    "type": "dropdown",
+    "property": "wireframe.essentials.corner_shape",
+    "label": "Corner shape for essentials",
+    "value": "string",
+    "default": "round",
+    "options": [
+      {
+        "value": "round",
+        "label": "Round (Classic)"
+      },
+      {
+        "value": "squircle",
+        "label": "Squircle (Zen Default)"
       }
     ]
   },

@@ -78,8 +78,10 @@ This theme implements customizable preferences using Zen Browser's preference sy
 - `wireframe.window.border_radius` *(dropdown, default: "None")* — Border radius for window `[0px, 4px, 8px, 12px, 16px, 20px, ...]`
 - `wireframe.tab.borders` *(dropdown, default: "None")* — Border styling for tabs `[macOS: All, macOS: Active]`
 - `wireframe.tab.border_radius` *(dropdown, default: "None")* — Border radius for tabs `[0px, 4px, 8px, 12px, 16px, 20px, ...]`
+- `wireframe.tab.corner_shape` *(dropdown, default: "round")* — Corner shape for tabs `[Round (Classic), Squircle (Zen Default)]`
 - `wireframe.essen.borders` *(dropdown, default: "None")* — Border styling for essentials `[macOS: All, macOS: Active]`
 - `wireframe.essentials.border_radius` *(dropdown, default: "None")* — Border radius for essentials `[0px, 4px, 8px, 12px, 16px, 20px, ...]`
+- `wireframe.essentials.corner_shape` *(dropdown, default: "round")* — Corner shape for essentials `[Round (Classic), Squircle (Zen Default)]`
 
 ### Typography
 
