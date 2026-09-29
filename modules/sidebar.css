@@ -556,20 +556,12 @@
 
 .tab-background { border-radius: var(--na-user-border-radius) !important; }
 
+/* Zen draws the favicon glow (::after) and the selected plate (::before);
+   only match the plate's radius to Wireframe's essentials radius. */
 .zen-essentials-container > .tabbrowser-tab {
   @media -moz-pref("zen.theme.essentials-favicon-bg") {
-    &[visuallyselected] > .tab-stack > .tab-background {
-      &::after {
-        content: '';
-        inset: -50%;
-        filter: blur(20px);
-        position: absolute;
-        background-size: contain;
-        background-clip: padding-box;
-        background-image: var(--zen-essential-tab-icon);
-        z-index: -1;
-        background-position: center;
-      }
+    &[visuallyselected] > .tab-stack > .tab-background::before {
+      border-radius: calc(var(--na-essen-border-radius) - var(--zen-essential-bg-margin, 2px)) !important;
     }
   }
 }
@@ -584,7 +576,7 @@
   color: var(--na-color-bg) !important;
 } */
 
-.tabbrowser-tab .tab-background:not([zen-essential])::before{
+.tabbrowser-tab:not([zen-essential]) .tab-background::before{
   background: rgba(0,0,0,0.2) !important;
   margin: 0 !important;
   border-radius: var(--na-tab-border-radius) !important;
@@ -597,7 +589,7 @@
 }
 
 /* Border radius of tabs */
-.tabbrowser-tab .tab-background:not([zen-essential]){
+.tabbrowser-tab:not([zen-essential]) .tab-background{
   border-radius: var(--na-tab-border-radius) !important;
 }
 
