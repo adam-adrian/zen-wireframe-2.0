@@ -110,30 +110,11 @@
   }
   
   @media (-moz-pref("wireframe.macos.controls.focus")){
-    .titlebar-min {
+    .titlebar-close:not(:hover):-moz-window-inactive,
+    .titlebar-min:not(:hover):-moz-window-inactive,
+    .titlebar-max:not(:hover):-moz-window-inactive,
+    .titlebar-restore:not(:hover):-moz-window-inactive {
       background-color: var(--zen-toolbar-element-bg) !important;
-    }
-
-    .titlebar-max,
-    .titlebar-restore {
-      background-color: var(--zen-toolbar-element-bg) !important;
-    }
-
-    .titlebar-close {
-      background-color: var(--zen-toolbar-element-bg) !important;
-    }
-    
-    
-    .titlebar-close:not(:hover):-moz-window-inactive {
-      background-color: #FE6254 !important;
-    }
-
-    .titlebar-min:not(:hover):-moz-window-inactive {
-      background-color: #FDC92D !important;
-    }
-
-    .titlebar-max:not(:hover):-moz-window-inactive {
-      background-color: #28D33F !important;
     }
   }
   
