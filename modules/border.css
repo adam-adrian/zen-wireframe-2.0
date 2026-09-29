@@ -464,13 +464,16 @@ body > hbox {
     content: "";
     border-radius: var(--na-essen-border-radius) !important;
     box-shadow: 
-      /* --- subtle inner highlight bevel --- */ 
-      inset 0 1px 0 rgba(255,255,255,0.30), 
-      inset 0 0 0 1px rgba(255,255,255,0.12), 
-      /* --- soft adaptive border --- */ 
-      0 0 0 1px light-dark(rgba(0,0,0,0.08), rgba(255,255,255,0.15)), 
-      /* --- smooth soft elevation --- */ 
-      0 1px 2px light-dark(rgba(0,0,0,0.06), rgba(0,0,0,0.30)) !important;
+      /* --- corner mask: prevents edge halo bleeding --- */ 
+      inset 0 0 0 1px rgba(255,255,255,0.22), 
+      /* --- curved metal highlight (top + edges) --- */ 
+      inset 0 0 0 2px rgba(255,255,255,0.32), 
+      /* --- inner soft falloff depth --- */ 
+      inset 0 0 4px 1.5px rgba(0,0,0,0.08), 
+      /* --- machined outer rim --- */ 
+      0 0 0 1px rgba(0,0,0,0.08), 
+      /* --- outer structure ring / subtle glow --- */ 
+      0 2px 3px rgba(0,0,0,0.12) !important;
   }
 }
 
@@ -484,13 +487,16 @@ body > hbox {
     content: "";
     border-radius: var(--na-essen-border-radius) !important;
     box-shadow: 
-      /* --- subtle inner highlight bevel --- */ 
-      inset 0 1px 0 rgba(255,255,255,0.30), 
-      inset 0 0 0 1px rgba(255,255,255,0.12), 
-      /* --- soft adaptive border --- */ 
-      0 0 0 1px light-dark(rgba(0,0,0,0.08), rgba(255,255,255,0.15)), 
-      /* --- smooth soft elevation --- */ 
-      0 1px 2px light-dark(rgba(0,0,0,0.06), rgba(0,0,0,0.30)) !important;
+      /* --- corner mask: prevents edge halo bleeding --- */ 
+      inset 0 0 0 1px rgba(255,255,255,0.22), 
+      /* --- curved metal highlight (top + edges) --- */ 
+      inset 0 0 0 2px rgba(255,255,255,0.32), 
+      /* --- inner soft falloff depth --- */ 
+      inset 0 0 4px 1.5px rgba(0,0,0,0.08), 
+      /* --- machined outer rim --- */ 
+      0 0 0 1px rgba(0,0,0,0.08), 
+      /* --- outer structure ring / subtle glow --- */ 
+      0 2px 3px rgba(0,0,0,0.12) !important;
   }
 }
 
@@ -504,13 +510,16 @@ body > hbox {
     content: "";
     border-radius: var(--na-tab-border-radius) !important;
     box-shadow: 
-      /* --- subtle inner highlight bevel --- */ 
-      inset 0 1px 0 rgba(255,255,255,0.30), 
-      inset 0 0 0 1px rgba(255,255,255,0.12), 
-      /* --- soft adaptive border --- */ 
-      0 0 0 1px light-dark(rgba(0,0,0,0.08), rgba(255,255,255,0.15)), 
-      /* --- smooth soft elevation --- */ 
-      0 1px 2px light-dark(rgba(0,0,0,0.06), rgba(0,0,0,0.30)) !important;
+      /* --- corner mask: prevents edge halo bleeding --- */ 
+      inset 0 0 0 1px rgba(255,255,255,0.22), 
+      /* --- curved metal highlight (top + edges) --- */ 
+      inset 0 0 0 2px rgba(255,255,255,0.32), 
+      /* --- inner soft falloff depth --- */ 
+      inset 0 0 4px 1.5px rgba(0,0,0,0.08), 
+      /* --- machined outer rim --- */ 
+      0 0 0 1px rgba(0,0,0,0.08), 
+      /* --- outer structure ring / subtle glow --- */ 
+      0 2px 3px rgba(0,0,0,0.12) !important;
   }
 }
 
@@ -525,13 +534,16 @@ body > hbox {
     content: "";
     border-radius: var(--na-tab-border-radius) !important;
     box-shadow: 
-      /* --- subtle inner highlight bevel --- */ 
-      inset 0 1px 0 rgba(255,255,255,0.30), 
-      inset 0 0 0 1px rgba(255,255,255,0.12), 
-      /* --- soft adaptive border --- */ 
-      0 0 0 1px light-dark(rgba(0,0,0,0.08), rgba(255,255,255,0.15)), 
-      /* --- smooth soft elevation --- */ 
-      0 1px 2px light-dark(rgba(0,0,0,0.06), rgba(0,0,0,0.30)) !important;
+      /* --- corner mask: prevents edge halo bleeding --- */ 
+      inset 0 0 0 1px rgba(255,255,255,0.22), 
+      /* --- curved metal highlight (top + edges) --- */ 
+      inset 0 0 0 2px rgba(255,255,255,0.32), 
+      /* --- inner soft falloff depth --- */ 
+      inset 0 0 4px 1.5px rgba(0,0,0,0.08), 
+      /* --- machined outer rim --- */ 
+      0 0 0 1px rgba(0,0,0,0.08), 
+      /* --- outer structure ring / subtle glow --- */ 
+      0 2px 3px rgba(0,0,0,0.12) !important;
   }
 }
 
