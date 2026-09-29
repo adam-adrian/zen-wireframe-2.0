@@ -556,12 +556,15 @@
 
 .tab-background { border-radius: var(--na-user-border-radius) !important; }
 
-/* Zen draws the favicon glow (::after) and the selected plate (::before);
-   only match the plate's radius to Wireframe's essentials radius. */
+/* Zen draws the favicon glow (::after) under an almost opaque plate (::before);
+   Wireframe keeps the plate translucent so the whole tile shows the gradient,
+   sized to the tile so no rim peeks out at the corners. */
 .zen-essentials-container > .tabbrowser-tab {
   @media -moz-pref("zen.theme.essentials-favicon-bg") {
     &[visuallyselected] > .tab-stack > .tab-background::before {
-      border-radius: calc(var(--na-essen-border-radius) - var(--zen-essential-bg-margin, 2px)) !important;
+      background: rgba(0,0,0,0.2) !important;
+      margin: 0 !important;
+      border-radius: var(--na-essen-border-radius) !important;
     }
   }
 }
