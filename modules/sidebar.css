@@ -603,10 +603,11 @@ zen-folder,
 zen-folder > .tab-group-label-container,
 zen-folder > .tab-group-label-container::before,
 tab-group,
-tab-group > .tab-group-label-container,
-tab-group > .tab-group-label-container::before,
-#tabbrowser-tabs tab-group > .tab-group-label-container::before,
-tab-group[atg-folder-look] > .tab-group-label-container::before {
+tab-group .tab-group-label-container,
+tab-group .tab-group-label-container::before,
+#tabbrowser-tabs tab-group .tab-group-label-container,
+#tabbrowser-tabs tab-group:not([split-view-group]) > .tab-group-label-container::before,
+tab-group[atg-folder-look]:not([split-view-group]) > .tab-group-label-container::before {
   border-radius: var(--na-tab-border-radius) !important;
 }
 
@@ -617,7 +618,7 @@ tab-group[atg-folder-look] > .tab-group-label-container::before {
   border-radius: var(--na-essen-border-radius) !important;
 }
 
-/* Corner shape for tabs, newtab button, close/reset buttons, folders, and tab groups */
+/* Corner shape: Classic Round */
 @media not (-moz-pref("wireframe.tab.corner_shape", "squircle")) {
   .tabbrowser-tab:not([zen-essential]),
   .tabbrowser-tab:not([zen-essential]) .tab-background,
@@ -638,14 +639,26 @@ tab-group[atg-folder-look] > .tab-group-label-container::before {
   zen-folder > .tab-group-label-container::after,
   zen-folder > .tab-group-container,
   tab-group,
-  tab-group > .tab-group-label-container,
-  tab-group > .tab-group-label-container::before,
-  tab-group > .tab-group-label-container::after,
+  tab-group .tab-group-label-container,
+  tab-group .tab-group-label-container::before,
+  tab-group .tab-group-label-container::after,
   tab-group > .tab-group-container,
-  tab-group[atg-folder-look],
-  tab-group[atg-folder-look] > .tab-group-label-container,
-  tab-group[atg-folder-look] > .tab-group-label-container::before {
+  #tabbrowser-tabs tab-group:not([split-view-group]) > .tab-group-label-container::before,
+  tab-group[atg-folder-look]:not([split-view-group]) > .tab-group-label-container::before {
     corner-shape: round !important;
+  }
+}
+
+/* Corner shape: Squircle (explicitly applied to pseudo-elements that don't inherit *) */
+@media (-moz-pref("wireframe.tab.corner_shape", "squircle")) {
+  zen-folder > .tab-group-label-container::before,
+  zen-folder > .tab-group-label-container::after,
+  tab-group .tab-group-label-container,
+  tab-group .tab-group-label-container::before,
+  tab-group .tab-group-label-container::after,
+  #tabbrowser-tabs tab-group:not([split-view-group]) > .tab-group-label-container::before,
+  tab-group[atg-folder-look]:not([split-view-group]) > .tab-group-label-container::before {
+    corner-shape: superellipse(var(--zen-squircle-value)) !important;
   }
 }
 
