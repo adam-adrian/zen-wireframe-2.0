@@ -35,36 +35,36 @@
 }
 
 /* Fix overflow issue only */
-#zen-media-info-vbox {
+.zen-media-info-vbox {
     min-width: 0 !important;
     overflow: hidden !important;
 }
 
-#zen-media-info-container {
+.zen-media-info-container {
     overflow: hidden !important;
     min-width: 0 !important;
 }
 
 /* hide elements */
 @media (-moz-pref("wireframe.player.minimal")){
-  #zen-media-pip-button,
-  #zen-media-mute-button,
-  #zen-media-mute-mic-button,
-  #zen-media-mute-camera-button {
+  .zen-media-pip-button,
+  .zen-media-mute-button,
+  .zen-media-mute-mic-button,
+  .zen-media-mute-camera-button {
       display: none !important;
   }
 
-  #zen-media-controls-hbox {
+  .zen-media-controls-hbox {
       display: flex !important;
       justify-content: center !important; /* center all children horizontally */
       align-items: center !important;     /* vertically center */
   }
   
-  #zen-media-focus-button{
+  .zen-media-focus-button{
     display: none !important;
   }
 
-  #zen-media-controls-hbox toolbarbutton[style*="display: none"] {
+  .zen-media-controls-hbox toolbarbutton[style*="display: none"] {
       width: 0 !important;
       margin: 0 !important;
       padding: 0 !important;
@@ -73,7 +73,7 @@
 
 @media (-moz-pref("wireframe.player.flip")){
   /* Always show title and progress */
-  #zen-media-info-vbox,
+  .zen-media-info-vbox,
   #zen-media-controls-toolbar .show-on-hover {
       max-height: unset !important;
       opacity: 1 !important;
@@ -83,8 +83,8 @@
   }
 
   /* Hide controls by default */
-  #zen-media-buttons-hbox,
-  #zen-media-controls-hbox {
+  .zen-media-buttons-hbox,
+  .zen-media-controls-hbox {
       max-height: 0 !important;
       opacity: 0 !important;
       overflow: hidden !important;
@@ -92,20 +92,20 @@
       transition: max-height 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
   }
   
-  #zen-media-close-button{
+  .zen-media-close-button{
     visibility: collapse !important;
     opacity: 0 !important;
     transition: max-height 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
   }
   
-  #zen-media-controls-toolbar:hover #zen-media-close-button{
+  #zen-media-controls-toolbar:hover .zen-media-close-button{
     visibility: visible !important;
     opacity: 1 !important;
   }
 
   /* Show controls on hover */
-  #zen-media-controls-toolbar:hover #zen-media-buttons-hbox,
-  #zen-media-controls-toolbar:hover #zen-media-controls-hbox {
+  #zen-media-controls-toolbar:hover .zen-media-buttons-hbox,
+  #zen-media-controls-toolbar:hover .zen-media-controls-hbox {
       max-height: 32px !important; /* adjust to your button row height */
       opacity: 1 !important;
       overflow: visible !important;
@@ -113,7 +113,7 @@
   }
   
   /* change gradient color */
-  #zen-media-info-vbox:before{
+  .zen-media-info-vbox:before{
     background: linear-gradient(to right, transparent 0%, transparent 80%) !important;
   }
 
