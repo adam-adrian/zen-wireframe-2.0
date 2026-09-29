@@ -1,68 +1,120 @@
-
 # Wireframe Theme Configuration
 
 ## Preferences Implementation
 
-This theme implements customizable preferences using Zen Browser's preference system. Preferences are defined in `preferences.json` and can be accessed through Zen Browser's preferences interface.
+This theme implements customizable preferences using Zen Browser's preference system. Preferences are defined in `preferences.json` and can be accessed through Zen Browser's theme settings interface (Sine).
 
 ## Available Preferences
 
-### Boolean Preferences
+### Window Controls
 
-1. `zen.view.use-single-toolbar` - Use single toolbar layout
-2. `wireframe.animations.enabled` - Enable animations in Wireframe theme
-3. `wireframe.borders.squared` - Use squared borders
-4. `wireframe.urlbar.position.top` - Position URL bar at the top (for multiple and collapsed toolbar only)
-5. `wireframe.macos.controls` - Disable macOS style window controls
-6. `zen.view.experimental-force-window-controls-left` - Force window controls to the left (for macOS style controls only)
-7. `wireframe.blank.theme` - Change color scheme for about:blank
-8. `wireframe.blank.content` - Remove logo from about:blank
-9. `wireframe.controls.reverse` - Reverse window controls
-10. `wireframe.toolbar.hide` - Auto hide toolbar buttons (Reveal on hover)
-11. `wireframe.navigation.hide` - Disable navigation buttons
-12. `wireframe.statusbar.disable` - Disable status bar
-13. `wireframe.compact.siderbar.transparent` - Make sidebar transparent in compact mode
-14. `zen.theme.essentials-favicon-bg` - Disable favicon background for essentials
-15. `wireframe.audio.indicator.disable` - Disable audio indicator on tab
+- `wireframe.macos.controls` *(boolean, default: false)* — Disable macOS style window controls
+- `wireframe.macos.controls.focus` *(boolean, default: true)* — Greyscale controls if window is inactive (macOS style only)
+- `wireframe.controls.reverse` *(boolean, default: false)* — Reverse window controls
+- `wireframe.macos.controls.radius` *(dropdown, default: "0")* — Change macos window control radius `[Square, Squircle, Circle]`
+- `zen.view.experimental-force-window-controls-left` *(boolean, default: true)* — Force window controls to the left (for macOS style controls only)
 
-### Dropdown Preferences
+### Toolbar and Navigation
 
-1. `wireframe.webview.border-radius` - Border radius for webview (e.g., 0px, 4px, 8px, 12px)
-2. `wireframe.macos.controls.radius` - Change macOS window control radius (square, squircle, circle)
-3. `wireframe.webview.border_radius` - Border radius for webview (0px, 4px, 8px, 12px, 16px, 20px)
-4. `wireframe.window.border_radius` - Border radius for window (0px, 4px, 8px, 12px, 16px, 20px, 24px)
-5. `wireframe.tab.border_radius` - Border radius for tabs (0px, 4px, 8px, 12px, 16px, 20px, 24px)
-6. `wireframe.essentials.border_radius` - Border radius for essentials (0px, 4px, 8px, 12px, 16px, 20px, 24px, circle)
-7. `wireframe.font` - Font selection (SF-Pro, Bricolage, GeistMono, JetBrainsMono, SUSE, SUSEMono)
+- `wireframe.toolbar.hide` *(boolean, default: false)* — Auto hide toolbar buttons (Reveal on hover)
+- `wireframe.navigation.hide` *(boolean, default: false)* — Disable navigation buttons
+- `wireframe.workspace.icon.hide` *(boolean, default: true)* — Hide workspace indicator icon
+- `wireframe.workspace-switch.fan` *(boolean, default: false)* — Enable fan style workspace switcher (experimental)
+- `wireframe.sidebar-foot.hide` *(boolean, default: true)* — Hide sidebar foot buttons
+- `wireframe.statusbar.disable` *(boolean, default: true)* — Disable status bar
+- `wireframe.floating-compact-sidebar.enabled` *(boolean, default: true)* — Enable floating compact sidebar
+- `wireframe.compact-sidebar.hide` *(boolean, default: none)* — Hide compact sidebar on empty tab
+- `wireframe.compact.sidebar.transparent` *(boolean, default: none)* — Make sidebar transparent in compact mode
+- `wireframe.contextmenu` *(boolean, default: none)* — Enable glass tint context menu
+- `wireframe.ff-sidebar.floating` *(boolean, default: true)* — Enable floating firefox sidebar
+- `wireframe.nogaps.enabled` *(boolean, default: none)* — Enable no gap for single-toolbar
+- `wireframe.nogaps.border.enabled` *(boolean, default: none)* — Show splitter (for no gaps mod)
+- `wireframe.pinned-ext.enabled` *(boolean, default: none)* — Enable pinned extensions
+- `wireframe.trackpad.animation` *(boolean, default: none)* — Enable trackpad animations
 
-### String Preferences
+### URL bar Settings
 
-1. `wf-border-color` - Change color for window border (currently not working)
+- `wireframe.urlbar.style` *(dropdown, default: "None")* — Change URL bar style `[slim, Slim(Centered), full]`
+- `wireframe.urlbar.border_radius` *(dropdown, default: "None")* — Border radius for urlbar `[0px, 4px, 8px, 12px, 16px, 20px, ...]`
+- `wireframe.urlbar.blurred` *(boolean, default: false)* — Enable tinted glass effect on URL bar
+- `wireframe.urlbar.position.top` *(boolean, default: none)* — Position URL bar at the top (for multiple and collapsed toolbar only)
+- `wireframe.urlbar-loading.text` *(boolean, default: true)* — Enable custom new urlbar loading text
+- `wireframe.urlbar-open.effect` *(dropdown, default: "Slide from Bottom")* — URLBar Opening Animation `[Slide from Bottom, Magnetic Rise, PopCorn, Drop Off, Neon Flash, Soft Warp, ...]`
+- `wireframe.urlbar-focus.effect` *(dropdown, default: "Hard Shift")* — Webview Animation `[Hard Shift, Lights Off, Pushed Away, Soft Fade, Film Grain Blur, Flash Bang, ...]`
+- `wireframe.urlbar.icons.hide` *(boolean, default: none)* — Hide website icons in URL bar results
+- `wireframe.urlbar.icons.greyscale` *(boolean, default: none)* — Make website icons greyscale in URL bar results
+
+### Cool Visual Element Settings
+
+- `wireframe.blank.logo` *(dropdown, default: "wireframe")* — Change blank page logo `[No Logo, Wireframe, Checks, Starlight, Rings, Waves, ...]`
+- `wf-blank-logo-size` *(string, default: "150px")* — Change blank page logo size
+- `wf-blank-logo-opacity` *(string, default: "0.75")* — Change blank page logo opacity
+- `wireframe.blank.theme` *(dropdown, default: "None")* — Change color scheme for about:blank `[Dark Tint, Light Tint, Transparent]`
+- `wireframe.browser.pattern` *(dropdown, default: "none")* — Change browser background pattern `[None, Fancy Rectangles, Leafs, Stripes, Stars, Waves, ...]`
+- `pattern-opacity` *(string, default: "0.4")* — Change browser background pattern opacity
+- `pattern-brightness` *(string, default: "0.7")* — Change browser background pattern brightness
+
+### Tab Settings
+
+- `wireframe.new-tab.label` *(boolean, default: none)* — Enable custom new tab label
+- `wireframe.new-tab.reveal.animation` *(boolean, default: none)* — Enable reveal on hover animation for new tab
+- `zen.theme.essentials-favicon-bg` *(boolean, default: none)* — Enable favicon gradient background for essentials
+- `wireframe.audio.indicator.disable` *(boolean, default: none)* — Disable audio indicator on tab
+- `wireframe.tab-hover.animation` *(boolean, default: none)* — Enable tab hover animation
+- `wireframe.tab-icon.invert` *(boolean, default: none)* — Invert tab icon color
+- `wireframe.folders` *(dropdown, default: "border")* — Folder styling options `[Border, Background]`
+- `wireframe.tab-loading.animation` *(dropdown, default: "both")* — Tab loading animation options `[Loading Bar, Tab Background Progress Bar, Both]`
+- `wireframe.tab-switch.animation` *(dropdown, default: "Vertical Veil")* — Tab switching animation options `[Vertical Veil, Clean Sever, Blurry Dreams, Prism Shatter, Hard Cut, Monolith Slide, ...]`
+
+### Border Settings
+
+- `wireframe.window.border` *(dropdown, default: "wireframe")* — Change border around the browser window `[wireframe, macos]`
+- `wf-border-color` *(string, default: "None")* — Change border color
+- `wireframe.webview.border` *(dropdown, default: "wireframe")* — Change border around the webview `[wireframe, macos]`
+- `wireframe.tab-shadow.disabled` *(boolean, default: true)* — Disable tab shadow
+- `wireframe.urlbar.border` *(dropdown, default: "wireframe")* — Change border around the URL bar `[wireframe, macos]`
+- `wireframe.macos.border` *(boolean, default: none)* — Enable macOS style border for compact sidebar and other elements
+- `wireframe.webview.border_radius` *(dropdown, default: "None")* — Border radius for webview `[0px, 4px, 8px, 12px, 16px, 20px]`
+- `wireframe.window.border_radius` *(dropdown, default: "None")* — Border radius for window `[0px, 4px, 8px, 12px, 16px, 20px, ...]`
+- `wireframe.tab.borders` *(dropdown, default: "None")* — Border styling for tabs `[macOS: All, macOS: Active]`
+- `wireframe.tab.border_radius` *(dropdown, default: "None")* — Border radius for tabs `[0px, 4px, 8px, 12px, 16px, 20px, ...]`
+- `wireframe.essen.borders` *(dropdown, default: "None")* — Border styling for essentials `[macOS: All, macOS: Active]`
+- `wireframe.essentials.border_radius` *(dropdown, default: "None")* — Border radius for essentials `[0px, 4px, 8px, 12px, 16px, 20px, ...]`
+
+### Typography
+
+- `wireframe.font` *(dropdown, default: "Bricolage")* — Font `[SF-Pro, Bricolage Grotesque, Monocraft, Geist Mono, JetBrains Mono, SUSE, ...]`
+- `wireframe-font-size` *(string, default: "")* — Change font size for tabs
+
+### Picture-in-Picture
+
+- `wireframe.pip.disabled` *(boolean, default: none)* — Disable Picture-in-Picture customization
+- `wireframe.pip.rounded` *(boolean, default: none)* — Enable rounded corners for PiP window
+- `wireframe.pip.border_radius` *(dropdown, default: "None")* — Border radius for PiP controls `[0px, 4px, 6px, 8px, 10px]`
+- `wireframe.pip.blur` *(boolean, default: none)* — Enable blur effect on PiP controls
+
+### Media Player
+
+- `wireframe.player.minimal` *(boolean, default: none)* — Make the Media Player window minimal (pip, volume, and call controls hidden)
+- `wireframe.player.flip` *(boolean, default: none)* — Flipped media player
 
 ## How Preferences Work
 
-  /* Styles when preference is enabled */
-  
-```
-
-### Implementation Example
-For the URL bar position preference, we've implemented a single boolean preference:
-
-- When `wireframe.urlbar.position.top` is enabled, the URL bar appears at the top
-- When `wireframe.urlbar.position.top` is disabled (default), the URL bar appears at the bottom
+Preferences toggle CSS rules using the Gecko `@media (-moz-pref(...))` query or CSS custom properties:
 
 ```css
-/* URL bar position preference - TOP */
-@media (-moz-pref("wireframe.urlbar.position.top")) {
-  #zen-appcontent-wrapper {
-    flex-direction: column;
+/* Boolean preference */
+@media (-moz-pref("wireframe.player.minimal")) {
+  .zen-media-pip-button,
+  .zen-media-mute-button {
+    display: none !important;
   }
 }
 
-/* URL bar position preference - BOTTOM (default) */
-@media not (-moz-pref("wireframe.urlbar.position.top")) {
-  #zen-appcontent-wrapper {
-    flex-direction: column-reverse;
+/* Dropdown preference with specific value */
+@media (-moz-pref("wireframe.urlbar.style", "slim")) {
+  #urlbar {
+    width: 320px !important;
   }
 }
 ```
@@ -71,42 +123,6 @@ For the URL bar position preference, we've implemented a single boolean preferen
 
 To add new preferences to the theme:
 
-1. Add the preference definition to `preferences.json`
-2. Implement the CSS rules in the appropriate module file
-3. Update the README.md file to document the new preference
-4. Test the preference to ensure it works correctly
-
-## Preference Best Practices
-
-1. Use descriptive names that clearly indicate what the preference does
-2. Provide clear descriptions for each preference
-3. Set sensible default values
-4. Group related preferences logically
-5. Test preferences thoroughly to ensure they work as expected
-
-## New Features in Wireframe 2.0
-
-### Border Radius Controls
-Wireframe 2.0 introduces comprehensive border radius controls for different UI elements:
-- Webview border radius: Control the corner radius of the web content area
-- Window border radius: Adjust the corner radius of the browser window
-- Tab border radius: Customize the corner radius of browser tabs
-- Essentials border radius: Modify the corner radius of essential UI elements like bookmarks and extensions
-
-### Typography Options
-The theme now supports multiple font options with the `wireframe.font` preference:
-- SF-Pro: Apple's system font
-- Bricolage: Bricolage Grotesque font
-- GeistMono: Clean monospace font
-- JetBrainsMono: Developer-focused monospace font
-- SUSE: Clean sans-serif font
-- SUSEMono: Monospace variant of SUSE
-
-### Favicon Background Control
-You can now disable the background for favicons in the essentials toolbar using the `zen.theme.essentials-favicon-bg` preference.
-
-### Window Control Radius
-Enhanced customization options for macOS style window controls with the `wireframe.macos.controls.radius` preference.
-
-### Fullscreen and Maximized Mode Fixes
-Fixed border radius issues when the browser is in fullscreen and maximized modes, ensuring consistent styling across all window states.
+1. Add the preference definition to `preferences.json`.
+2. Implement matching `@media (-moz-pref("your.pref"))` or CSS variables in the relevant file in `modules/`.
+3. Update `CONFIG.md` and test in Zen Browser.

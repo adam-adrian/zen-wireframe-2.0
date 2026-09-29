@@ -501,6 +501,10 @@
         "label": "Y2K Globe"
       },
       {
+        "value": "globe-alt",
+        "label": "Globe 2"
+      },
+      {
         "value": "y2k-star",
         "label": "Y2K Star"
       },
