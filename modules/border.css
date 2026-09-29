@@ -457,7 +457,8 @@ body > hbox {
 
 /* macos style border for essentials */
 @media (-moz-pref("wireframe.essen.borders", "macos-all")){
-  .tabbrowser-tab:has([zen-essential]) .tab-background::after{
+  .tabbrowser-tab[zen-essential] .tab-background::after,
+  .tabbrowser-tab[zen-essential] .tab-stack::after {
     position: absolute;
     inset: 2px;
     content: "";
@@ -472,12 +473,15 @@ body > hbox {
       /* --- machined outer rim --- */ 
       0 0 0 1px rgba(0,0,0,0.25), 
       /* --- outer structure ring / subtle glow --- */ 
-      0 2px 3px rgba(0,0,0,0.20)  
+      0 2px 3px rgba(0,0,0,0.20) !important;
   }
 }
 
 @media (-moz-pref("wireframe.essen.borders", "macos-active")){
-  .tabbrowser-tab[selected]:has([zen-essential]) .tab-background::after{
+  .tabbrowser-tab[visuallyselected][zen-essential] .tab-background::after,
+  .tabbrowser-tab[selected][zen-essential] .tab-background::after,
+  .tabbrowser-tab[visuallyselected][zen-essential] .tab-stack::after,
+  .tabbrowser-tab[selected][zen-essential] .tab-stack::after {
     position: absolute;
     inset: 2px;
     content: "";
@@ -492,13 +496,14 @@ body > hbox {
       /* --- machined outer rim --- */ 
       0 0 0 1px rgba(0,0,0,0.25), 
       /* --- outer structure ring / subtle glow --- */ 
-      0 2px 3px rgba(0,0,0,0.20)  
+      0 2px 3px rgba(0,0,0,0.20) !important;
   }
 }
 
 /* macostyle border for tabs */
 @media (-moz-pref("wireframe.tab.borders", "macos-all")){
-  .tabbrowser-tab:not([zen-essential]) .tab-stack::after{
+  .tabbrowser-tab:not([zen-essential]) .tab-stack::after,
+  .tabbrowser-tab:not([zen-essential]) .tab-background::after {
     position: absolute;
     z-index: -1 !important;
     inset: 2px;
@@ -514,12 +519,15 @@ body > hbox {
       /* --- machined outer rim --- */ 
       0 0 0 1px rgba(0,0,0,0.25), 
       /* --- outer structure ring / subtle glow --- */ 
-      0 2px 3px rgba(0,0,0,0.20)  
+      0 2px 3px rgba(0,0,0,0.20) !important;
   }
 }
 
 @media (-moz-pref("wireframe.tab.borders", "macos-active")){
-  .tabbrowser-tab[selected]:not([zen-essential]) .tab-stack::after{
+  .tabbrowser-tab[visuallyselected]:not([zen-essential]) .tab-stack::after,
+  .tabbrowser-tab[selected]:not([zen-essential]) .tab-stack::after,
+  .tabbrowser-tab[visuallyselected]:not([zen-essential]) .tab-background::after,
+  .tabbrowser-tab[selected]:not([zen-essential]) .tab-background::after {
     position: absolute;
     z-index: -1 !important;
     inset: 2px;
@@ -535,7 +543,7 @@ body > hbox {
       /* --- machined outer rim --- */ 
       0 0 0 1px rgba(0,0,0,0.25), 
       /* --- outer structure ring / subtle glow --- */ 
-      0 2px 3px rgba(0,0,0,0.20)  
+      0 2px 3px rgba(0,0,0,0.20) !important;
   }
 }
 
