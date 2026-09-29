@@ -518,25 +518,24 @@
   }
 }
 
-/* hover border radius change for close button and reset button*/
-@media not (forced-colors) {
-  .close-icon:hover {
-    background-color: color-mix(in srgb, currentColor 10%, transparent);
-    border-radius: var(--na-tab-border-radius) !important;
-  }
-}
-.close-icon {
-  &:hover {
-    outline-color: var(--toolbarbutton-hover-outline-color);
-  }
+/* hover border radius and styling for close and reset buttons */
+.tab-close-button,
+.tab-reset-button,
+.tab-reset-pin-button {
+  border-radius: var(--na-tab-border-radius) !important;
 }
 
 @media not (forced-colors) {
-  .reset-icon:hover {
-    background-color: color-mix(in srgb, currentColor 10%, transparent);
+  .tab-close-button:hover,
+  .close-icon:hover,
+  .tab-reset-button:hover,
+  .reset-icon:hover,
+  .tab-reset-pin-button:hover {
+    background-color: color-mix(in srgb, currentColor 10%, transparent) !important;
     border-radius: var(--na-tab-border-radius) !important;
   }
 }
+.close-icon,
 .reset-icon {
   &:hover {
     outline-color: var(--toolbarbutton-hover-outline-color);
@@ -554,7 +553,7 @@
   }
 } */
 
-.tab-background { border-radius: var(--na-user-border-radius) !important; }
+
 
 /* Zen draws the favicon glow (::after) under an almost opaque plate (::before);
    Wireframe keeps the plate translucent so the whole tile shows the gradient,
@@ -596,13 +595,11 @@
   border-radius: var(--na-tab-border-radius) !important;
 }
 
-/* Border radius for folder */
-zen-folder {
-  & > .tab-group-label-container {
-    &::before {
-      border-radius: var(--na-tab-border-radius) !important;;
-    }
-  }
+/* Border radius for folder (normal and pinned) */
+zen-folder,
+zen-folder > .tab-group-label-container,
+zen-folder > .tab-group-label-container::before {
+  border-radius: var(--na-tab-border-radius) !important;
 }
 
 
@@ -612,12 +609,22 @@ zen-folder {
   border-radius: var(--na-essen-border-radius) !important;
 }
 
-/* Corner shape for tabs */
+/* Corner shape for tabs, close/reset buttons, and folders */
 @media not (-moz-pref("wireframe.tab.corner_shape", "squircle")) {
   .tabbrowser-tab:not([zen-essential]),
   .tabbrowser-tab:not([zen-essential]) .tab-background,
   .tabbrowser-tab:not([zen-essential]) .tab-background::before,
-  .tabbrowser-tab:not([zen-essential]) .tab-background::after {
+  .tabbrowser-tab:not([zen-essential]) .tab-background::after,
+  .tab-close-button,
+  .tab-reset-button,
+  .tab-reset-pin-button,
+  .close-icon,
+  .reset-icon,
+  zen-folder,
+  zen-folder > .tab-group-label-container,
+  zen-folder > .tab-group-label-container::before,
+  zen-folder > .tab-group-label-container::after,
+  zen-folder > .tab-group-container {
     corner-shape: round !important;
   }
 }
