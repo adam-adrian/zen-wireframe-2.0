@@ -10,7 +10,7 @@
   /* single-toolbar */
   /* style - full, normal */
   @media (-moz-pref("wireframe.urlbar.style","full")){
-    @media not (-moz-bool-pref:"wireframe.urlbar.position.top"){
+    @media not (-moz-pref("wireframe.urlbar.position.top")){
       #urlbar[open]{
         left: 23.25% !important;
         top: auto !important;
@@ -27,7 +27,7 @@
   
   /* style - slim, normal */
   @media (-moz-pref("wireframe.urlbar.style","slim")){
-    @media not (-moz-bool-pref:"wireframe.urlbar.position.top"){
+    @media not (-moz-pref("wireframe.urlbar.position.top")){
       #urlbar[open]{
         left: 23.25% !important;
         top: auto !important;
@@ -69,8 +69,7 @@
       #urlbar-container:has(#urlbar[breakout-extend]) #identity-box,
       #urlbar-container:has(#urlbar[breakout-extend]) #page-action-buttons,
       #urlbar-container:has(#urlbar[breakout-extend]) #tracking-protection-icon-container,
-      #urlbar-container:has(#urlbar[breakout-extend]) #urlbar-go-button,
-      #urlbar-container:has(#urlbar[breakout-extend]) #urlbar-anon-search-settings {
+      #urlbar-container:has(#urlbar[breakout-extend]) .urlbar-go-button {
        display: none !important;
       }
 

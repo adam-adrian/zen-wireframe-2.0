@@ -53,14 +53,14 @@ For the URL bar position preference, we've implemented a single boolean preferen
 
 ```css
 /* URL bar position preference - TOP */
-@media (-moz-bool-pref: "wireframe.urlbar.position.top") {
+@media (-moz-pref("wireframe.urlbar.position.top")) {
   #zen-appcontent-wrapper {
     flex-direction: column;
   }
 }
 
 /* URL bar position preference - BOTTOM (default) */
-@media not (-moz-bool-pref: "wireframe.urlbar.position.top") {
+@media not (-moz-pref("wireframe.urlbar.position.top")) {
   #zen-appcontent-wrapper {
     flex-direction: column-reverse;
   }

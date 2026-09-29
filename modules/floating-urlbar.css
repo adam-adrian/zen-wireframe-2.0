@@ -4,7 +4,6 @@
 } */
 
 /* URLBAR COLORS */
-#urlbar[breakout-extend] :root:has(.urlbar-page-action[open]) #urlbar-background,
 #urlbar[breakout-extend] .urlbar-background,
 #urlbar[breakout-extend] #urlbar-container {
 /*   background-color: var(--zen-primary-color) !important; */
@@ -319,7 +318,7 @@
   /* SLIM */
   @media (-moz-pref("wireframe.urlbar.style","slim")){
   /* move the navbar out from sidebar so url can have the same bahavior as other toolbar mode */
-    [zen-compact-mode="true"] {
+    &[zen-compact-mode="true"] {
       #urlbar-container:has(#urlbar[open]) {
         position: fixed !important;
         top: auto !important;
@@ -459,8 +458,7 @@
     #urlbar-container:has(#urlbar[breakout-extend]) #identity-box,
     #urlbar-container:has(#urlbar[breakout-extend]) #page-action-buttons,
     #urlbar-container:has(#urlbar[breakout-extend]) #tracking-protection-icon-container,
-    #urlbar-container:has(#urlbar[breakout-extend]) #urlbar-go-button,
-    #urlbar-container:has(#urlbar[breakout-extend]) #urlbar-anon-search-settings {
+    #urlbar-container:has(#urlbar[breakout-extend]) .urlbar-go-button {
      display: none !important;
     }
 
@@ -473,14 +471,14 @@
     } */
 
     /* Hide/style website icons based on preferences */
-    @media (-moz-bool-pref: "wireframe.urlbar.icons.hide") {
+    @media (-moz-pref("wireframe.urlbar.icons.hide")) {
       #urlbar-container:has(#urlbar[breakout-extend]) #urlbar-results img {
         display: none !important;
       }
     }
 
-    @media not (-moz-bool-pref: "wireframe.urlbar.icons.hide") {
-      @media (-moz-bool-pref: "wireframe.urlbar.icons.greyscale") {
+    @media not (-moz-pref("wireframe.urlbar.icons.hide")) {
+      @media (-moz-pref("wireframe.urlbar.icons.greyscale")) {
         #urlbar-container:has(#urlbar[breakout-extend]) #urlbar-results img {
           filter: grayscale(100%) !important;
         }
@@ -596,7 +594,7 @@
   /* SLIM CENTER */
     @media (-moz-pref("wireframe.urlbar.style","slim(center)")){
     /* move the navbar out from sidebar so url can have the same bahavior as other toolbar mode */
-    [zen-compact-mode="true"] {
+    &[zen-compact-mode="true"] {
       #urlbar-container:has(#urlbar[open]) {
         position: fixed !important;
         top: auto !important;
@@ -779,8 +777,7 @@
     #urlbar-container:has(#urlbar[breakout-extend]) #identity-box,
     #urlbar-container:has(#urlbar[breakout-extend]) #page-action-buttons,
     #urlbar-container:has(#urlbar[breakout-extend]) #tracking-protection-icon-container,
-    #urlbar-container:has(#urlbar[breakout-extend]) #urlbar-go-button,
-    #urlbar-container:has(#urlbar[breakout-extend]) #urlbar-anon-search-settings {
+    #urlbar-container:has(#urlbar[breakout-extend]) .urlbar-go-button {
      display: none !important;
     }
 
@@ -793,14 +790,14 @@
     } */
 
     /* Hide/style website icons based on preferences */
-    @media (-moz-bool-pref: "wireframe.urlbar.icons.hide") {
+    @media (-moz-pref("wireframe.urlbar.icons.hide")) {
       #urlbar-container:has(#urlbar[breakout-extend]) #urlbar-results img {
         display: none !important;
       }
     }
 
-    @media not (-moz-bool-pref: "wireframe.urlbar.icons.hide") {
-      @media (-moz-bool-pref: "wireframe.urlbar.icons.greyscale") {
+    @media not (-moz-pref("wireframe.urlbar.icons.hide")) {
+      @media (-moz-pref("wireframe.urlbar.icons.greyscale")) {
         #urlbar-container:has(#urlbar[breakout-extend]) #urlbar-results img {
           filter: grayscale(100%) !important;
         }
@@ -927,20 +924,19 @@
     #urlbar-container:has(#urlbar[breakout-extend]) #identity-box,
     #urlbar-container:has(#urlbar[breakout-extend]) #page-action-buttons,
     #urlbar-container:has(#urlbar[breakout-extend]) #tracking-protection-icon-container,
-    #urlbar-container:has(#urlbar[breakout-extend]) #urlbar-go-button,
-    #urlbar-container:has(#urlbar[breakout-extend]) #urlbar-anon-search-settings {
+    #urlbar-container:has(#urlbar[breakout-extend]) .urlbar-go-button {
      display: none !important;
     }
 
     /* Hide/style website icons based on preferences */
-    @media (-moz-bool-pref: "wireframe.urlbar.icons.hide") {
+    @media (-moz-pref("wireframe.urlbar.icons.hide")) {
       #urlbar-container:has(#urlbar[breakout-extend]) #urlbar-results img {
         display: none !important;
       }
     }
 
-    @media not (-moz-bool-pref: "wireframe.urlbar.icons.hide") {
-      @media (-moz-bool-pref: "wireframe.urlbar.icons.greyscale") {
+    @media not (-moz-pref("wireframe.urlbar.icons.hide")) {
+      @media (-moz-pref("wireframe.urlbar.icons.greyscale")) {
         #urlbar-container:has(#urlbar[breakout-extend]) #urlbar-results img {
           filter: grayscale(100%) !important;
         }
@@ -1070,8 +1066,7 @@
     #urlbar-container:has(#urlbar[breakout-extend]) #identity-box,
     #urlbar-container:has(#urlbar[breakout-extend]) #page-action-buttons,
     #urlbar-container:has(#urlbar[breakout-extend]) #tracking-protection-icon-container,
-    #urlbar-container:has(#urlbar[breakout-extend]) #urlbar-go-button,
-    #urlbar-container:has(#urlbar[breakout-extend]) #urlbar-anon-search-settings {
+    #urlbar-container:has(#urlbar[breakout-extend]) .urlbar-go-button {
      display: none !important;
     }
 
@@ -1084,14 +1079,14 @@
     } */
 
     /* Hide/style website icons based on preferences */
-    @media (-moz-bool-pref: "wireframe.urlbar.icons.hide") {
+    @media (-moz-pref("wireframe.urlbar.icons.hide")) {
       #urlbar-container:has(#urlbar[breakout-extend]) #urlbar-results img {
         display: none !important;
       }
     }
 
-    @media not (-moz-bool-pref: "wireframe.urlbar.icons.hide") {
-      @media (-moz-bool-pref: "wireframe.urlbar.icons.greyscale") {
+    @media not (-moz-pref("wireframe.urlbar.icons.hide")) {
+      @media (-moz-pref("wireframe.urlbar.icons.greyscale")) {
         #urlbar-container:has(#urlbar[breakout-extend]) #urlbar-results img {
           filter: grayscale(100%) !important;
         }
@@ -1391,8 +1386,7 @@
 
     #urlbar-container:has(#urlbar[breakout-extend]) #page-action-buttons,
     #urlbar-container:has(#urlbar[breakout-extend]) #tracking-protection-icon-container,
-    #urlbar-container:has(#urlbar[breakout-extend]) #urlbar-go-button,
-    #urlbar-container:has(#urlbar[breakout-extend]) #urlbar-anon-search-settings {
+    #urlbar-container:has(#urlbar[breakout-extend]) .urlbar-go-button {
      display: none !important;
     }
 
@@ -1405,14 +1399,14 @@
     } */
 
     /* Hide/style website icons based on preferences */
-    @media (-moz-bool-pref: "wireframe.urlbar.icons.hide") {
+    @media (-moz-pref("wireframe.urlbar.icons.hide")) {
       #urlbar-container:has(#urlbar[breakout-extend]) #urlbar-results img {
         display: none !important;
       }
     }
 
-    @media not (-moz-bool-pref: "wireframe.urlbar.icons.hide") {
-      @media (-moz-bool-pref: "wireframe.urlbar.icons.greyscale") {
+    @media not (-moz-pref("wireframe.urlbar.icons.hide")) {
+      @media (-moz-pref("wireframe.urlbar.icons.greyscale")) {
         #urlbar-container:has(#urlbar[breakout-extend]) #urlbar-results img {
           filter: grayscale(100%) !important;
         }
@@ -1544,8 +1538,7 @@
   /*   #urlbar-container:has(#urlbar[breakout-extend]) #identity-box,
     #urlbar-container:has(#urlbar[breakout-extend]) #page-action-buttons,
     #urlbar-container:has(#urlbar[breakout-extend]) #tracking-protection-icon-container,
-    #urlbar-container:has(#urlbar[breakout-extend]) #urlbar-go-button,
-    #urlbar-container:has(#urlbar[breakout-extend]) #urlbar-anon-search-settings {
+    #urlbar-container:has(#urlbar[breakout-extend]) .urlbar-go-button {
      display: none !important;
     } */
     
@@ -1562,14 +1555,14 @@
     }
 
     /* Hide/style website icons based on preferences */
-    @media (-moz-bool-pref: "wireframe.urlbar.icons.hide") {
+    @media (-moz-pref("wireframe.urlbar.icons.hide")) {
       #urlbar-container:has(#urlbar[breakout-extend]) #urlbar-results img {
         display: none !important;
       }
     }
 
-    @media not (-moz-bool-pref: "wireframe.urlbar.icons.hide") {
-      @media (-moz-bool-pref: "wireframe.urlbar.icons.greyscale") {
+    @media not (-moz-pref("wireframe.urlbar.icons.hide")) {
+      @media (-moz-pref("wireframe.urlbar.icons.greyscale")) {
         #urlbar-container:has(#urlbar[breakout-extend]) #urlbar-results img {
           filter: grayscale(100%) !important;
         }
@@ -1584,7 +1577,7 @@
     margin-left: 0px !important;
  }
 
- @media not (-moz-bool-pref: "wireframe.urlbar.position.top"){
+ @media not (-moz-pref("wireframe.urlbar.position.top")){
    #nav-bar {
      order: 1 !important;
      margin-bottom: 10px !important;

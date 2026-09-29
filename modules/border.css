@@ -8,14 +8,11 @@
 #titlebar,
 #TabsToolbar,
 .browserContainer,
-#appcontent,
 #browser,
 .browserSidebarContainer,
 #zen-tabbox-wrapper,
 #zen-appcontent-wrapper,
-body,
-body > hbox,
-#zen-main-app {
+body > hbox {
     border-radius: 0px;
     border-radius: 0;
 }
@@ -175,7 +172,7 @@ body > hbox {
 }
 
 /* ====== WEBVIEW BORDER ====== */
-@media not (-moz-pref("wireframe.webview.border")){
+@media not (-moz-pref("wireframe.webview.border", "wireframe")){
     /* content window border size on RIGHT side tabbar */
     :root[zen-right-side="true"]:not([zen-compact-mode="true"]):not(
             [inDOMFullscreen="true"]
@@ -244,41 +241,20 @@ body > hbox {
   }
 }
 
-
-
-/* fix for overflowing borders when webview border is off */
-@media not (-moz-pref("wireframe.webview.border")){
-    /* content window border size on RIGHT side tabbar */
-    :root[zen-right-side="true"]:not([zen-compact-mode="true"]):not(
-            [inDOMFullscreen="true"]
-        )
-        #zen-tabbox-wrapper {
-        border: 0.1px solid transparent !important;
-    }
-
-    /* content window border size on LEFT side tabbar */
-    :root:not([zen-right-side="true"]):not([zen-compact-mode="true"]):not(
-            [inDOMFullscreen="true"]
-        )
-        #zen-tabbox-wrapper {
-        border: 0.1px solid transparent !important;
-    }
-}
-
 /* remove content window border on split tabs*/
 /* :root:has(#tabbrowser-tabpanels [zen-split]) #zen-tabbox-wrapper {
     border: none !important;
 } */
 
 /* content window bottom margin on SINGLE-TOOLBAR mode */
-/* @media (-moz-bool-pref: "zen.view.use-single-toolbar") {
+/* @media (-moz-pref("zen.view.use-single-toolbar")) {
   :root[zen-sidebar-expanded="true"]:not([zen-compact-mode="true"]):not([inDOMFullscreen="true"]) #zen-tabbox-wrapper {
     margin-bottom: var(--na-window-margin) !important;
   }
 } */
 
 /* @media (-moz-pref("zen.view.use-single-toolbar")) {
-  @media not (-moz-bool-pref: "wireframe.urlbar.position.top"){
+  @media not (-moz-pref("wireframe.urlbar.position.top")){
     :root[zen-sidebar-expanded="true"]:not([zen-compact-mode="true"]):not([inDOMFullscreen="true"]) #zen-tabbox-wrapper {
       margin-bottom: calc( var(--na-window-margin) - 10px ) !important;
     }
@@ -313,9 +289,8 @@ body > hbox {
 /* WEBVIEW BORDER RADIUS */
 
 #tabbrowser-tabbox,
-#tabbrowser-tabbox > * {
+#tabbrowser-tabbox > *:not(:where(#zen-split-view-fake-browser)) {
     margin: 0 !important;
-    padding: 0 !important;
     box-sizing: border-box !important;
     
     
@@ -694,8 +669,8 @@ body > hbox {
 
 
 
-/* fix for transparent blank page */
-.browserStack {
+/* fix for transparent blank page (glance keeps Zen's loading background) */
+.browserStack:not(:is(.zen-glance-overlay, #zen-glance-detached) *) {
     browser {
         background-color: transparent !important;
     }

@@ -1,5 +1,5 @@
 /* ------------------ */
-@media not (-moz-bool-pref: "wireframe.macos.controls"){
+@media not (-moz-pref("wireframe.macos.controls")){
   /* minimize, maximize, and close button */
   @media -moz-pref("zen.tabs.vertical") {
   :root:not([zen-window-buttons-reversed="true"]) {
@@ -160,9 +160,9 @@
   }
 }
 
-@media not (-moz-bool-pref: "wireframe.controls.reverse"){
+@media not (-moz-pref("wireframe.controls.reverse")){
   
-  @media not (-moz-bool-pref: "wireframe.macos.controls"){
+  @media not (-moz-pref("wireframe.macos.controls")){
    .titlebar-close{ 
     content: none !important;
    }
@@ -190,8 +190,8 @@
   }
 }
 
-@media (-moz-bool-pref: "wireframe.controls.reverse"){
-  @media not (-moz-bool-pref: "wireframe.macos.controls"){
+@media (-moz-pref("wireframe.controls.reverse")){
+  @media not (-moz-pref("wireframe.macos.controls")){
     .titlebar-min,
     .titlebar-max,
     .titlebar-close {
@@ -200,8 +200,8 @@
   }
 }
 
-@media (-moz-bool-pref: "wireframe.macos.controls"){
-  @media (-moz-bool-pref: "wireframe.controls.reverse"){
+@media (-moz-pref("wireframe.macos.controls")){
+  @media (-moz-pref("wireframe.controls.reverse")){
     .titlebar-buttonbox-container{
       margin-right: 0px !important;
     }
@@ -214,7 +214,7 @@
 
 /* adjust height for top urlbar and buttons in sidebar */
 @media not (-moz-pref("zen.view.use-single-toolbar")){
-  @media (-moz-bool-pref: "wireframe.urlbar.position.top"){
+  @media (-moz-pref("wireframe.urlbar.position.top")){
     #zen-sidebar-top-buttons{
       margin-top: -4px !important;
     }
