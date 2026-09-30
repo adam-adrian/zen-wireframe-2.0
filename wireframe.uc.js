@@ -23,8 +23,29 @@
   const onFindbarOpen = ({ target }) => replay(target, () => !target.hidden);
   window.addEventListener("findbaropen", onFindbarOpen);
 
+  // Mirror the selected tab's loading state onto :root as wireframe-tab-*. CSS used
+  // :root:has(.tabbrowser-tab[selected][busy]) before, which re-matched every tab on
+  // each load start/stop and tab switch.
+  const root = document.documentElement;
+  const mirrored = ["busy", "pendingicon", "progress", "muted"];
+  const syncTab = () => {
+    const tab = gBrowser.selectedTab;
+    for (const attr of mirrored) root.toggleAttribute(`wireframe-tab-${attr}`, tab.hasAttribute(attr));
+  };
+  const tabObserver = new MutationObserver(syncTab);
+  const onTabSelect = () => {
+    tabObserver.disconnect();
+    tabObserver.observe(gBrowser.selectedTab, { attributeFilter: mirrored });
+    syncTab();
+  };
+  gBrowser.tabContainer.addEventListener("TabSelect", onTabSelect);
+  onTabSelect();
+
   window.addUnloadListener?.(() => {
     observer.disconnect();
     window.removeEventListener("findbaropen", onFindbarOpen);
+    tabObserver.disconnect();
+    gBrowser.tabContainer.removeEventListener("TabSelect", onTabSelect);
+    for (const attr of mirrored) root.removeAttribute(`wireframe-tab-${attr}`);
   });
 }

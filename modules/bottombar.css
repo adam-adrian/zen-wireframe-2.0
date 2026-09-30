@@ -153,13 +153,14 @@
   z-index: -1;
 }
 
-#main-window:has(.tabbrowser-tab[selected][busy]) .urlbar-input-container::before {
+/* wireframe-tab-* attributes are mirrored from the selected tab by wireframe.uc.js */
+#main-window[wireframe-tab-busy] .urlbar-input-container::before {
   animation-play-state: running;
   opacity: 1;
 }
 
-#main-window:has(.tabbrowser-tab[selected][busy]) #zen-copy-url-button,
-#main-window:has(.tabbrowser-tab[selected][busy]) #identity-box {
+#main-window[wireframe-tab-busy] #zen-copy-url-button,
+#main-window[wireframe-tab-busy] #identity-box {
   display: none !important;
 }
 

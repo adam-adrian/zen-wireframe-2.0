@@ -2,7 +2,11 @@
 
 /* ====== NORMAL URLBAR BEHAVIOUR ======*/
 
-#navigator-toolbox:has(#urlbar[zen-floating-urlbar="false"]){
+/* Zen 1.23 no longer writes zen-floating-urlbar="false"; the attribute is "true" while
+   floating and absent otherwise. Anchored on #urlbar-container so opening the urlbar
+   doesn't restyle the whole sidebar. */
+@media not (-moz-pref("zen.urlbar.behavior", "float")) {
+#navigator-toolbox #urlbar-container:has(#urlbar:not([zen-floating-urlbar="true"])) {
   
   .urlbar-background{
     border-radius: var(--na-window-border-radius) !important;
@@ -60,46 +64,46 @@
       }
 
       /* expanded urlbar items padding */
-      #urlbar-container:has(#urlbar[breakout-extend]) #urlbar {
+      &:has(#urlbar[breakout-extend]) #urlbar {
         font-size: 1em !important;
         height: fit-content !important;
         padding-inline: 2px !important;
         padding-block: 2px !important;
       }
 
-      #urlbar-container:has(#urlbar[breakout-extend]) #urlbar .urlbar-input,
-      #urlbar-container:has(#urlbar[breakout-extend]) #urlbar .urlbar-input-box {
+      &:has(#urlbar[breakout-extend]) #urlbar .urlbar-input,
+      &:has(#urlbar[breakout-extend]) #urlbar .urlbar-input-box {
         margin: 0px !important;
         padding: 0px !important;
       }
 
-      #urlbar-container:has(#urlbar[breakout-extend]) #urlbar .urlbar-input-container {
+      &:has(#urlbar[breakout-extend]) #urlbar .urlbar-input-container {
         height: fit-content !important;
         margin: 0px !important;
         padding-block: 12px !important;
         padding-inline: 17px !important;
       }
 
-      #urlbar-container:has(#urlbar[breakout-extend]) #identity-box,
-      #urlbar-container:has(#urlbar[breakout-extend]) #page-action-buttons,
-      #urlbar-container:has(#urlbar[breakout-extend]) #tracking-protection-icon-container,
-      #urlbar-container:has(#urlbar[breakout-extend]) .urlbar-go-button {
+      &:has(#urlbar[breakout-extend]) #identity-box,
+      &:has(#urlbar[breakout-extend]) #page-action-buttons,
+      &:has(#urlbar[breakout-extend]) #tracking-protection-icon-container,
+      &:has(#urlbar[breakout-extend]) .urlbar-go-button {
        display: none !important;
       }
 
-      #urlbar-container:has(#urlbar[breakout-extend]) #urlbar-results>.urlbarView-row>.urlbarView-row-inner>.urlbarView-url {
+      &:has(#urlbar[breakout-extend]) #urlbar-results>.urlbarView-row>.urlbarView-row-inner>.urlbarView-url {
         margin-inline: 0px !important;
       }
 
-      #urlbar-container:has(#urlbar[breakout-extend]) #urlbar-results {
+      &:has(#urlbar[breakout-extend]) #urlbar-results {
         font-size: 1em !important;
       }
 
-      #urlbar-container:has(#urlbar[breakout-extend]) #urlbar-results img {
+      &:has(#urlbar[breakout-extend]) #urlbar-results img {
         display: none !important;
       }
 
-      #urlbar-container:has(#urlbar[breakout-extend]) .urlbarView-results div {
+      &:has(#urlbar[breakout-extend]) .urlbarView-results div {
         margin: 0px !important;
         padding-block: 2px !important;
         padding-inline: 6px !important;
@@ -204,6 +208,7 @@
         padding-right: 2px !important;
       }
   }
+}
 }
 
 /* opening animation for the floating URL bar */

@@ -88,6 +88,12 @@
   border-bottom: 1px solid var(--toolbar-textcolor) !important;
 }
 
+/* several rules below switch these to display: list-item; don't draw the bullet */
+.urlbarView-body-inner,
+.search-one-offs {
+  list-style-type: none !important;
+}
+
 
 /* URLBAR loading text */
 
@@ -108,12 +114,12 @@
     transition: opacity 0.6s;
   }
 
-  #main-window:has(.tabbrowser-tab[selected][busy]) #urlbar:not([breakout-extend]) .urlbar-input-container>.urlbar-input-box>input {
+  #main-window[wireframe-tab-busy] #urlbar:not([breakout-extend]) .urlbar-input-container>.urlbar-input-box>input {
     transition: opacity 3s ease;
     opacity: 0 !important;
   }
 
-  #main-window:has(.tabbrowser-tab[selected][busy]) #urlbar:not([breakout-extend]) .urlbar-input-container>.urlbar-input-box::before {
+  #main-window[wireframe-tab-busy] #urlbar:not([breakout-extend]) .urlbar-input-container>.urlbar-input-box::before {
     animation-play-state: running;
     visibility: visible !important;
     opacity: 1;

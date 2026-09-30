@@ -329,18 +329,18 @@
     }
 
     /* When active (progress happening) */
-    :root:has(.tabbrowser-tab[selected][busy]) .browserSidebarContainer.deck-selected::before {
+    :root[wireframe-tab-busy] .browserSidebarContainer.deck-selected::before {
       opacity: 1;
     }
 
     /* Dynamic progression */
-    :root:has(.tabbrowser-tab[selected][busy]) { --bar-pcent: 20%; }
-    :root:has(.tabbrowser-tab[selected][busy][pendingicon]) { --bar-pcent: 45%; }
-    :root:has(.tabbrowser-tab[selected][busy][pendingicon][progress]) { --bar-pcent: 80%; }
-    :root:has(.tabbrowser-tab[selected][busy][progress]) { --bar-pcent: 95%; }
+    :root[wireframe-tab-busy] { --bar-pcent: 20%; }
+    :root[wireframe-tab-busy][wireframe-tab-pendingicon] { --bar-pcent: 45%; }
+    :root[wireframe-tab-busy][wireframe-tab-pendingicon][wireframe-tab-progress] { --bar-pcent: 80%; }
+    :root[wireframe-tab-busy][wireframe-tab-progress] { --bar-pcent: 95%; }
 
     /* Full done */
-    :root:has(.tabbrowser-tab[selected][muted]:not([busy])) {
+    :root[wireframe-tab-muted]:not([wireframe-tab-busy]) {
       --bar-pcent: 100%;
     }
 
@@ -416,18 +416,18 @@
     }
 
     /* When active (progress happening) */
-    :root:has(.tabbrowser-tab[selected][busy]) .browserSidebarContainer.deck-selected::before {
+    :root[wireframe-tab-busy] .browserSidebarContainer.deck-selected::before {
       opacity: 1;
     }
 
     /* Dynamic progression */
-    :root:has(.tabbrowser-tab[selected][busy]) { --bar-pcent: 20%; }
-    :root:has(.tabbrowser-tab[selected][busy][pendingicon]) { --bar-pcent: 45%; }
-    :root:has(.tabbrowser-tab[selected][busy][pendingicon][progress]) { --bar-pcent: 80%; }
-    :root:has(.tabbrowser-tab[selected][busy][progress]) { --bar-pcent: 95%; }
+    :root[wireframe-tab-busy] { --bar-pcent: 20%; }
+    :root[wireframe-tab-busy][wireframe-tab-pendingicon] { --bar-pcent: 45%; }
+    :root[wireframe-tab-busy][wireframe-tab-pendingicon][wireframe-tab-progress] { --bar-pcent: 80%; }
+    :root[wireframe-tab-busy][wireframe-tab-progress] { --bar-pcent: 95%; }
 
     /* Full done */
-    :root:has(.tabbrowser-tab[selected][muted]:not([busy])) {
+    :root[wireframe-tab-muted]:not([wireframe-tab-busy]) {
       --bar-pcent: 100%;
     }
 
