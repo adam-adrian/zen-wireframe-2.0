@@ -20,44 +20,23 @@
   overflow: hidden !important;
 }
 
-/* ====== FLOATING TRANSPARENT URLBAR ====== */
+/* ====== FLOATING TRANSPARENT / FROSTED URLBAR ====== */
 @media (-moz-pref("wireframe.urlbar.blurred")) {
-  #urlbar[zen-floating-urlbar="true"][breakout-extend="true"] > .urlbar-background {
+  #urlbar:is([open], [breakout-extend]) .urlbar-background {
     background: color-mix(
       in srgb,
-      var(--zen-primary-color) 50%,
-      transparent
+      var(--zen-primary-color) 40%,
+      light-dark(rgba(255, 255, 255, 0.65), rgba(20, 20, 20, 0.65))
     ) !important;
+    backdrop-filter: blur(28px) saturate(160%) !important;
   }
-  
-  :root[zen-default-theme] 
-  #urlbar[zen-floating-urlbar="true"][breakout-extend="true"] > .urlbar-background {
-    background: color-mix(
-      in srgb,
-      var(--zen-primary-color) 50%,
-      rgba(0, 0, 0, 0.6)
-    ) !important;
+
+  #urlbar:is([open], [breakout-extend]) {
+    backdrop-filter: blur(28px) saturate(160%) !important;
   }
   
   .urlbarView-body-inner:has(.urlbarView-row[selected]) .urlbarView-row[selected] {
-      background-color: color-mix(var(--zen-colors-primary) 15%, transparent) !important;
-    }
-}
-
-@media (-moz-pref("wireframe.urlbar.blurred")) {
-
-  /* DARK MODE */
-  :root[zen-should-be-dark-mode="true"] #urlbar[open] {
-    backdrop-filter: blur(28px) saturate(160%) brightness(0.8);
-  }
-
-  /* LIGHT MODE */
-  :root[zen-should-be-dark-mode="false"] #urlbar[open] {
-    backdrop-filter: blur(28px) saturate(160%) brightness(1.1);
-  }
-  
-  :root[zen-default-theme] #urlbar[open] {
-    backdrop-filter: blur(28px) saturate(160%) brightness(1);
+    background-color: color-mix(in srgb, var(--zen-colors-primary) 20%, transparent) !important;
   }
 }
 
