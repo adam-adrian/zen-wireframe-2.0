@@ -217,6 +217,22 @@
   :root[zen-single-toolbar="true"][zen-compact-mode="true"] #navigator-toolbox {
     --zen-compact-hidden-distance: calc(var(--zen-sidebar-width) + var(--zen-element-separation) + 20px - 1px) !important;
   }
+
+  /* Zen places #zen-dragover-background from the toolbox edges and the target row's
+     viewport top, assuming the stock compact toolbox. Match the floating card instead:
+     #titlebar margin 20px + padding 10px, and the toolbox's top: 22px above. */
+  :root[zen-single-toolbar="true"][zen-compact-mode="true"][zen-sidebar-expanded="true"]:not([zen-compact-animating]) #zen-dragover-background {
+    left: 30px !important;
+    right: 10px !important;
+    width: auto !important;
+    transform: translateY(-22px) !important;
+    border-radius: var(--na-tab-border-radius) !important;
+  }
+
+  :root[zen-single-toolbar="true"][zen-compact-mode="true"][zen-sidebar-expanded="true"][zen-right-side]:not([zen-compact-animating]) #zen-dragover-background {
+    left: 10px !important;
+    right: 30px !important;
+  }
 }
 
 /* expanded floating sidebar */
