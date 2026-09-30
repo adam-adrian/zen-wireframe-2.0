@@ -929,7 +929,7 @@
 
   @media (-moz-pref("wireframe.urlbar.style","slim")){
   /* move the navbar out from sidebar so url can have the same bahavior as other toolbar mode */
-    [zen-compact-mode="true"] {
+    :root[zen-compact-mode="true"] & {
       #urlbar-container:has(#urlbar[open]) {
         position: fixed !important;
         top: auto !important;
@@ -1182,7 +1182,7 @@
 
   @media (-moz-pref("wireframe.urlbar.style","slim(center)")){
     /* move the navbar out from sidebar so url can have the same bahavior as other toolbar mode */
-    [zen-compact-mode="true"] {
+    :root[zen-compact-mode="true"] & {
       #urlbar-container:has(#urlbar[open]) {
         position: fixed !important;
         top: auto !important;
@@ -1562,6 +1562,7 @@
      margin-bottom: 10px !important;
    }
  }
+}
 
 /* === URLBAR OPENING ANIMATIONS === */
 

@@ -39,7 +39,21 @@
       #urlbar > .urlbar-input-container {
         order: 1 !important;
       }
-      
+    }
+  }
+
+  /* style - slim(center), normal */
+  @media (-moz-pref("wireframe.urlbar.style","slim(center)")){
+    #urlbar[open]{
+      left: 23.25% !important;
+      top: 30% !important;
+      bottom: auto !important;
+      display: flex !important;
+      flex-direction: column !important;
+    }
+  }
+
+  @media (-moz-pref("wireframe.urlbar.style","slim")), (-moz-pref("wireframe.urlbar.style","slim(center)")) {
         /* navbar padding */
       .urlbar-input-container {
           padding-inline: 2px !important;
@@ -189,7 +203,6 @@
         padding-left: 6px !important;
         padding-right: 2px !important;
       }
-    }
   }
 }
 
