@@ -635,6 +635,7 @@ tab-group .tab-group-label-container,
 tab-group .tab-group-label-container::before,
 tab-group .tab-group-label-container::after,
 tab-group > .tab-group-container,
+#tabbrowser-tabs tab-group .tab-group-label-container,
 #tabbrowser-tabs tab-group:not([split-view-group]) > .tab-group-label-container::before,
 tab-group[atg-folder-look]:not([split-view-group]) > .tab-group-label-container::before {
   border-radius: var(--na-tab-border-radius) !important;

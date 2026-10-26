@@ -61,46 +61,46 @@
       }
 
       /* expanded urlbar items padding */
-      #urlbar-container:has(#urlbar[breakout-extend]) #urlbar {
+      &:has(#urlbar[breakout-extend]) #urlbar {
         font-size: 1em !important;
         height: fit-content !important;
         padding-inline: 2px !important;
         padding-block: 2px !important;
       }
 
-      #urlbar-container:has(#urlbar[breakout-extend]) #urlbar .urlbar-input,
-      #urlbar-container:has(#urlbar[breakout-extend]) #urlbar .urlbar-input-box {
+      &:has(#urlbar[breakout-extend]) #urlbar .urlbar-input,
+      &:has(#urlbar[breakout-extend]) #urlbar .urlbar-input-box {
         margin: 0px !important;
         padding: 0px !important;
       }
 
-      #urlbar-container:has(#urlbar[breakout-extend]) #urlbar .urlbar-input-container {
+      &:has(#urlbar[breakout-extend]) #urlbar .urlbar-input-container {
         height: fit-content !important;
         margin: 0px !important;
         padding-block: 12px !important;
         padding-inline: 17px !important;
       }
 
-      #urlbar-container:has(#urlbar[breakout-extend]) #identity-box,
-      #urlbar-container:has(#urlbar[breakout-extend]) #page-action-buttons,
-      #urlbar-container:has(#urlbar[breakout-extend]) #tracking-protection-icon-container,
-      #urlbar-container:has(#urlbar[breakout-extend]) .urlbar-go-button {
+      &:has(#urlbar[breakout-extend]) #identity-box,
+      &:has(#urlbar[breakout-extend]) #page-action-buttons,
+      &:has(#urlbar[breakout-extend]) #tracking-protection-icon-container,
+      &:has(#urlbar[breakout-extend]) .urlbar-go-button {
        display: none !important;
       }
 
-      #urlbar-container:has(#urlbar[breakout-extend]) .urlbarView-results>.urlbarView-row>.urlbarView-row-inner>.urlbarView-url {
+      &:has(#urlbar[breakout-extend]) .urlbarView-results>.urlbarView-row>.urlbarView-row-inner>.urlbarView-url {
         margin-inline: 0px !important;
       }
 
-      #urlbar-container:has(#urlbar[breakout-extend]) .urlbarView-results {
+      &:has(#urlbar[breakout-extend]) .urlbarView-results {
         font-size: 1em !important;
       }
 
-      #urlbar-container:has(#urlbar[breakout-extend]) .urlbarView-results img {
+      &:has(#urlbar[breakout-extend]) .urlbarView-results img {
         display: none !important;
       }
 
-      #urlbar-container:has(#urlbar[breakout-extend]) .urlbarView-results div {
+      &:has(#urlbar[breakout-extend]) .urlbarView-results div {
         margin: 0px !important;
         padding-block: 2px !important;
         padding-inline: 6px !important;
