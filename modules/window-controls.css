@@ -132,8 +132,11 @@
   }
   
   @media (-moz-pref("wireframe.macos.controls.radius",2)){
-    .titlebar-button {
+    /* 50% radius alone still renders as a superellipse now that variables.css
+       hands Zen's squircle to every element; pin the geometry to a real circle */
+    .titlebar-buttonbox .titlebar-button {
       border-radius: 50% !important;
+      corner-shape: round !important;
     }
   }
 }
