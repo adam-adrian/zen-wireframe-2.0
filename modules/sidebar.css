@@ -4,10 +4,12 @@
 
 #titlebar:before{
   border-radius: var(--na-user-border-radius) !important;
+  corner-shape: var(--wf-shape-panel) !important;
 }
 
 #titlebar{
   border-radius: var(--na-user-border-radius) !important;
+  corner-shape: var(--wf-shape-panel) !important;
 }
 
 .zen-toolbar-background {
@@ -18,6 +20,7 @@
 .zen-toolbar-background {
   &, &::before, &::after {
     border-radius: var(--na-user-border-radius) !important;
+    corner-shape: var(--wf-shape-panel) !important;
   }
 }
 
@@ -227,6 +230,7 @@
     width: auto !important;
     transform: translateY(-22px) !important;
     border-radius: var(--na-tab-border-radius) !important;
+    corner-shape: var(--wf-shape-tab) !important;
   }
 
   :root[zen-single-toolbar="true"][zen-compact-mode="true"][zen-sidebar-expanded="true"][zen-right-side]:not([zen-compact-animating]) #zen-dragover-background {
@@ -425,6 +429,7 @@
 #vertical-tabs-newtab-button,
 #vertical-tabs-newtab-button:hover {
   border-radius: var(--na-tab-border-radius) !important;
+  corner-shape: var(--wf-shape-tab) !important;
 }
 
 /* === Changed new tab label === */
@@ -572,7 +577,10 @@
   }
 } */
 
-
+.tab-background {
+  border-radius: var(--na-user-border-radius) !important;
+  corner-shape: var(--wf-corner-shape) !important;
+}
 
 /* Zen draws the favicon glow (::after) under an almost opaque plate (::before);
    Wireframe keeps the plate translucent so the whole tile shows the gradient,
@@ -601,6 +609,7 @@
   background: rgba(0,0,0,0.2) !important;
   margin: 0 !important;
   border-radius: var(--na-tab-border-radius) !important;
+  corner-shape: var(--wf-shape-tab) !important;
 }
 
 /* unfocused tabs */
@@ -612,95 +621,43 @@
 /* Border radius of tabs */
 .tabbrowser-tab:not([zen-essential]) .tab-background{
   border-radius: var(--na-tab-border-radius) !important;
+  corner-shape: var(--wf-shape-tab) !important;
 }
 
 /* Border radius for folder (normal and pinned) and tab-group (ATG folder-look) */
 zen-folder,
 zen-folder > .tab-group-label-container,
 zen-folder > .tab-group-label-container::before,
+zen-folder > .tab-group-label-container::after,
 tab-group,
 tab-group .tab-group-label-container,
 tab-group .tab-group-label-container::before,
-#tabbrowser-tabs tab-group .tab-group-label-container,
+tab-group .tab-group-label-container::after,
 #tabbrowser-tabs tab-group:not([split-view-group]) > .tab-group-label-container::before,
 tab-group[atg-folder-look]:not([split-view-group]) > .tab-group-label-container::before {
   border-radius: var(--na-tab-border-radius) !important;
+  corner-shape: var(--wf-shape-tab) !important;
 }
 
 
-/* Border radius of essentials */
+/* Border radius of essentials (Zen 1.23: [zen-essential] sits on the tab itself) */
 .tabbrowser-tab[zen-essential] .tab-background,
-.tabbrowser-tab[zen-essential] .tab-background::before {
+.tabbrowser-tab[zen-essential] .tab-background::before,
+.tabbrowser-tab[zen-essential] .tab-background::after {
   border-radius: var(--na-essen-border-radius) !important;
+  corner-shape: var(--wf-shape-essen) !important;
 }
 
-/* Corner shape: Classic Round */
-@media not (-moz-pref("wireframe.tab.corner_shape", "squircle")) {
-  .tabbrowser-tab:not([zen-essential]),
-  .tabbrowser-tab:not([zen-essential]) .tab-background,
-  .tabbrowser-tab:not([zen-essential]) .tab-background::before,
-  .tabbrowser-tab:not([zen-essential]) .tab-background::after,
-  .tabbrowser-tab:not([zen-essential]) .tab-stack::after,
-  #tabs-newtab-button,
-  #tabs-newtab-button:hover,
-  #vertical-tabs-newtab-button,
-  #vertical-tabs-newtab-button:hover,
-  .tab-close-button,
-  .tab-reset-button,
-  .tab-reset-pin-button,
-  .close-icon,
-  .reset-icon,
-  zen-folder,
-  zen-folder > .tab-group-label-container,
-  zen-folder > .tab-group-label-container::before,
-  zen-folder > .tab-group-label-container::after,
-  zen-folder > .tab-group-container,
-  tab-group,
-  tab-group .tab-group-label-container,
-  tab-group .tab-group-label-container::before,
-  tab-group .tab-group-label-container::after,
-  tab-group > .tab-group-container,
-  #tabbrowser-tabs tab-group:not([split-view-group]) > .tab-group-label-container::before,
-  tab-group[atg-folder-look]:not([split-view-group]) > .tab-group-label-container::before,
-  #zen-dragover-background {
-    corner-shape: round !important;
+/* Pill shapes (round + oversized radius = true pill regardless of size) */
+@media (-moz-pref("wireframe.tab.shape", "pill")) {
+  .tabbrowser-tab .tab-background:not([zen-essential]) {
+    border-radius: 999px !important;
   }
 }
 
-/* Corner shape: Squircle (explicitly applied to pseudo-elements that don't inherit *) */
-@media (-moz-pref("wireframe.tab.corner_shape", "squircle")) {
-  .tabbrowser-tab:not([zen-essential]) .tab-background::before,
-  .tabbrowser-tab:not([zen-essential]) .tab-background::after,
-  .tabbrowser-tab:not([zen-essential]) .tab-stack::after,
-  zen-folder > .tab-group-label-container::before,
-  zen-folder > .tab-group-label-container::after,
-  tab-group .tab-group-label-container,
-  tab-group .tab-group-label-container::before,
-  tab-group .tab-group-label-container::after,
-  #tabbrowser-tabs tab-group:not([split-view-group]) > .tab-group-label-container::before,
-  tab-group[atg-folder-look]:not([split-view-group]) > .tab-group-label-container::before,
-  #zen-dragover-background {
-    corner-shape: superellipse(var(--zen-squircle-value)) !important;
-  }
-}
-
-/* Corner shape for essentials: Classic Round */
-@media not (-moz-pref("wireframe.essentials.corner_shape", "squircle")) {
-  .tabbrowser-tab[zen-essential],
-  .tabbrowser-tab[zen-essential] .tab-background,
-  .tabbrowser-tab[zen-essential] .tab-background::before,
-  .tabbrowser-tab[zen-essential] .tab-background::after,
-  .tabbrowser-tab[zen-essential] .tab-stack::after {
-    corner-shape: round !important;
-  }
-}
-
-/* Corner shape for essentials: Squircle */
-@media (-moz-pref("wireframe.essentials.corner_shape", "squircle")) {
-  .tabbrowser-tab[zen-essential] .tab-background::before,
-  .tabbrowser-tab[zen-essential] .tab-background::after,
-  .tabbrowser-tab[zen-essential] .tab-stack::after {
-    corner-shape: superellipse(var(--zen-squircle-value)) !important;
+@media (-moz-pref("wireframe.essen.shape", "pill")) {
+  .tabbrowser-tab[zen-essential] .tab-background {
+    border-radius: 999px !important;
   }
 }
 
@@ -718,6 +675,16 @@ tab-group[atg-folder-look]:not([split-view-group]) > .tab-group-label-container:
 :root[zen-sidebar-expanded="true"] #zen-current-workspace-indicator:hover>#zen-current-workspace-indicator-name {
   color: var(--na-color-bg) !important;
 } */
+
+/* Zen 1.23+ redesigned the splitter: it is now a floating accent bar that is
+   hidden by default (opacity: 0) and fades in on hover/resize.
+   Forcing opacity: 1 here made it a permanent vertical line on the sidebar edge. */
+@media (-moz-pref("wireframe.nogaps.border.enabled")) {
+  #zen-sidebar-splitter {
+    opacity: 1 !important;
+    background: transparent !important;
+  }
+}
 
 /* Pref to disable navigation buttons */
 @media (-moz-pref("wireframe.navigation.hide")){
@@ -770,12 +737,14 @@ tab-group[atg-folder-look]:not([split-view-group]) > .tab-group-label-container:
   zen-folder,
   tab-group:not([split-view-group]) {
     border-radius: var(--na-tab-border-radius) !important;
+    corner-shape: var(--wf-shape-tab) !important;
     position: relative !important; /* needed for the outline pseudo */
   }
 
   zen-folder:not([collapsed]),
   tab-group:not([split-view-group]):not([collapsed]) {
     border-radius: var(--na-tab-border-radius) !important;
+    corner-shape: var(--wf-shape-tab) !important;
     transition: all 0.18s ease !important;
     outline: 2px solid var(--zen-toolbar-element-bg) !important;
     outline-offset: -2px !important;
@@ -786,6 +755,7 @@ tab-group[atg-folder-look]:not([split-view-group]) > .tab-group-label-container:
   zen-folder,
   tab-group:not([split-view-group]) {
     border-radius: var(--na-tab-border-radius) !important;
+    corner-shape: var(--wf-shape-tab) !important;
     position: relative !important; /* needed for the outline pseudo */
   }
 
@@ -793,101 +763,13 @@ tab-group[atg-folder-look]:not([split-view-group]) > .tab-group-label-container:
   tab-group:not([split-view-group]):not([collapsed]) {
     background: var(--zen-toolbar-element-bg) !important;
     border-radius: var(--na-tab-border-radius) !important;
+    corner-shape: var(--wf-shape-tab) !important;
     transition: all 0.18s ease !important;
   }
 }
 
 /* ======= MEDIA QUERIES FOR PREFERENCES ======== */
 
-/* Pref for tab and folder border radius */
-@media (-moz-pref("wireframe.tab.border_radius",0)){
-  :root{
-    --na-tab-border-radius: 0px !important;
-  }
-}
-
-@media (-moz-pref("wireframe.tab.border_radius",4)){
-  :root{
-    --na-tab-border-radius: 4px !important;
-  }
-}
-
-@media (-moz-pref("wireframe.tab.border_radius",8)){
-  :root{
-    --na-tab-border-radius: 8px !important;
-  }
-}
-
-@media (-moz-pref("wireframe.tab.border_radius",12)){
-  :root{
-    --na-tab-border-radius: 12px !important;
-  }
-}
-
-@media (-moz-pref("wireframe.tab.border_radius",16)){
-  :root{
-    --na-tab-border-radius: 16px !important;
-  }
-}
-
-@media (-moz-pref("wireframe.tab.border_radius",20)){
-  :root{
-    --na-tab-border-radius: 20px !important;
-  }
-}
-
-@media (-moz-pref("wireframe.tab.border_radius",24)){
-  :root{
-    --na-tab-border-radius: 24px !important;
-  }
-}
-
-/* Pref for essentials border radius */
-
-@media (-moz-pref("wireframe.essentials.border_radius",0)){
-  :root{
-    --na-essen-border-radius: 0px !important;
-  }
-}
-
-@media (-moz-pref("wireframe.essentials.border_radius",4)){
-  :root{
-    --na-essen-border-radius: 4px !important;
-  }
-}
-
-@media (-moz-pref("wireframe.essentials.border_radius",8)){
-  :root{
-    --na-essen-border-radius: 8px !important;
-  }
-}
-
-@media (-moz-pref("wireframe.essentials.border_radius",12)){
-  :root{
-    --na-essen-border-radius: 12px !important;
-  }
-}
-
-@media (-moz-pref("wireframe.essentials.border_radius",16)){
-  :root{
-    --na-essen-border-radius: 16px !important;
-  }
-}
-
-@media (-moz-pref("wireframe.essentials.border_radius",20)){
-  :root{
-    --na-essen-border-radius: 20px !important;
-  }
-}
-
-@media (-moz-pref("wireframe.essentials.border_radius",24)){
-  :root{
-    --na-essen-border-radius: 24px !important;
-  }
-}
-
-@media (-moz-pref("wireframe.essentials.border_radius",50)){
-  :root{
-    --na-essen-border-radius: 100px !important;
-  }
-}
+/* Tab / essentials radius is derived in variables.css from
+   --zen-border-radius × --wf-radius-scale (Zen-like dynamic radius system).
+   (Old per-element px prefs were removed in the 1.23 rework.) */

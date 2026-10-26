@@ -6,11 +6,8 @@
    floating and absent otherwise. Anchored on #urlbar-container so opening the urlbar
    doesn't restyle the whole sidebar. */
 @media not (-moz-pref("zen.urlbar.behavior", "float")) {
-#navigator-toolbox #urlbar-container:has(#urlbar:not([zen-floating-urlbar="true"])) {
+#navigator-toolbox #urlbar-container:has(#urlbar:not([zen-floating-urlbar="true"])){
   
-  .urlbar-background{
-    border-radius: var(--na-window-border-radius) !important;
-  }
   /* single-toolbar */
   /* style - full, normal */
   @media (-moz-pref("wireframe.urlbar.style","full")){
@@ -57,53 +54,53 @@
     }
   }
 
-  @media (-moz-pref("wireframe.urlbar.style","slim")), (-moz-pref("wireframe.urlbar.style","slim(center)")) {
+  @media (-moz-pref("wireframe.urlbar.style","slim")), (-moz-pref("wireframe.urlbar.style","slim(center)")){
         /* navbar padding */
       .urlbar-input-container {
           padding-inline: 2px !important;
       }
 
       /* expanded urlbar items padding */
-      &:has(#urlbar[breakout-extend]) #urlbar {
+      #urlbar-container:has(#urlbar[breakout-extend]) #urlbar {
         font-size: 1em !important;
         height: fit-content !important;
         padding-inline: 2px !important;
         padding-block: 2px !important;
       }
 
-      &:has(#urlbar[breakout-extend]) #urlbar .urlbar-input,
-      &:has(#urlbar[breakout-extend]) #urlbar .urlbar-input-box {
+      #urlbar-container:has(#urlbar[breakout-extend]) #urlbar .urlbar-input,
+      #urlbar-container:has(#urlbar[breakout-extend]) #urlbar .urlbar-input-box {
         margin: 0px !important;
         padding: 0px !important;
       }
 
-      &:has(#urlbar[breakout-extend]) #urlbar .urlbar-input-container {
+      #urlbar-container:has(#urlbar[breakout-extend]) #urlbar .urlbar-input-container {
         height: fit-content !important;
         margin: 0px !important;
         padding-block: 12px !important;
         padding-inline: 17px !important;
       }
 
-      &:has(#urlbar[breakout-extend]) #identity-box,
-      &:has(#urlbar[breakout-extend]) #page-action-buttons,
-      &:has(#urlbar[breakout-extend]) #tracking-protection-icon-container,
-      &:has(#urlbar[breakout-extend]) .urlbar-go-button {
+      #urlbar-container:has(#urlbar[breakout-extend]) #identity-box,
+      #urlbar-container:has(#urlbar[breakout-extend]) #page-action-buttons,
+      #urlbar-container:has(#urlbar[breakout-extend]) #tracking-protection-icon-container,
+      #urlbar-container:has(#urlbar[breakout-extend]) .urlbar-go-button {
        display: none !important;
       }
 
-      &:has(#urlbar[breakout-extend]) #urlbar-results>.urlbarView-row>.urlbarView-row-inner>.urlbarView-url {
+      #urlbar-container:has(#urlbar[breakout-extend]) .urlbarView-results>.urlbarView-row>.urlbarView-row-inner>.urlbarView-url {
         margin-inline: 0px !important;
       }
 
-      &:has(#urlbar[breakout-extend]) #urlbar-results {
+      #urlbar-container:has(#urlbar[breakout-extend]) .urlbarView-results {
         font-size: 1em !important;
       }
 
-      &:has(#urlbar[breakout-extend]) #urlbar-results img {
+      #urlbar-container:has(#urlbar[breakout-extend]) .urlbarView-results img {
         display: none !important;
       }
 
-      &:has(#urlbar[breakout-extend]) .urlbarView-results div {
+      #urlbar-container:has(#urlbar[breakout-extend]) .urlbarView-results div {
         margin: 0px !important;
         padding-block: 2px !important;
         padding-inline: 6px !important;
@@ -207,8 +204,8 @@
         padding-left: 6px !important;
         padding-right: 2px !important;
       }
+    }
   }
-}
 }
 
 /* opening animation for the floating URL bar */

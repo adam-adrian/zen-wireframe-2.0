@@ -35,7 +35,8 @@ This theme implements customizable preferences using Zen Browser's preference sy
 ### URL bar Settings
 
 - `wireframe.urlbar.style` *(dropdown, default: "None")* — Change URL bar style `[slim, Slim(Centered), full]`
-- `wireframe.urlbar.border_radius` *(dropdown, default: "None")* — Border radius for urlbar `[0px, 4px, 8px, 12px, 16px, 20px, ...]`
+- `wireframe.urlbar.radius_scale` *(dropdown, default: 100)* — Corner roundness for the URL bar `[0, 50, 75, 100, 125, 150, 200]` (100 = follow global)
+- `wireframe.urlbar.shape` *(dropdown, default: "squircle")* — Corner shape for the URL bar `[Squircle (follow global), Round]`
 - `wireframe.urlbar.blurred` *(boolean, default: false)* — Enable tinted glass effect on URL bar
 - `wireframe.urlbar.position.top` *(boolean, default: none)* — Position URL bar at the top (for multiple and collapsed toolbar only)
 - `wireframe.urlbar-loading.text` *(boolean, default: true)* — Enable custom new urlbar loading text
@@ -74,14 +75,18 @@ This theme implements customizable preferences using Zen Browser's preference sy
 - `wireframe.tab-shadow.disabled` *(boolean, default: true)* — Disable tab shadow
 - `wireframe.urlbar.border` *(dropdown, default: "wireframe")* — Change border around the URL bar `[wireframe, macos]`
 - `wireframe.macos.border` *(boolean, default: none)* — Enable macOS style border for compact sidebar and other elements
-- `wireframe.webview.border_radius` *(dropdown, default: "None")* — Border radius for webview `[0px, 4px, 8px, 12px, 16px, 20px]`
-- `wireframe.window.border_radius` *(dropdown, default: "None")* — Border radius for window `[0px, 4px, 8px, 12px, 16px, 20px, ...]`
+- `wireframe.radius_scale` *(dropdown, default: 100)* — Corner roundness for everything `[0, 50, 75, 100, 125, 150, 200]` (multiplier on Zen's own `zen.theme.border-radius`)
+- `wireframe.webview.radius_scale` *(dropdown, default: 100)* — Corner roundness for the webview (100 = follow global)
+- `wireframe.window.radius_scale` *(dropdown, default: 100)* — Corner roundness for the window border (100 = follow global)
+- `wireframe.tab.radius_scale` *(dropdown, default: 100)* — Corner roundness for tabs and folders (100 = follow global)
+- `wireframe.essen.radius_scale` *(dropdown, default: 100)* — Corner roundness for essentials (100 = follow global)
+- `wireframe.squircle` *(dropdown, default: 0)* — Squircle exponent, i.e. corner geometry `[0 = Zen default, 1.0 Round, 1.2 Soft, 1.5 Medium, 2.0 Squircle, 3.0 Sharp]`
+- `wireframe.webview.shape` *(dropdown, default: "squircle")* — Corner shape for the webview `[Squircle (follow global), Round]`
+- `wireframe.window.shape` *(dropdown, default: "squircle")* — Corner shape for the window border `[Squircle (follow global), Round]`
+- `wireframe.tab.shape` *(dropdown, default: "squircle")* — Corner shape for tabs and folders `[Squircle (follow global), Round, Pill]`
+- `wireframe.essen.shape` *(dropdown, default: "squircle")* — Corner shape for essentials `[Squircle (follow global), Round, Pill]`
 - `wireframe.tab.borders` *(dropdown, default: "None")* — Border styling for tabs `[macOS: All, macOS: Active]`
-- `wireframe.tab.border_radius` *(dropdown, default: "None")* — Border radius for tabs `[0px, 4px, 8px, 12px, 16px, 20px, ...]`
-- `wireframe.tab.corner_shape` *(dropdown, default: "round")* — Corner shape for tabs `[Round (Classic), Squircle (Zen Default)]`
 - `wireframe.essen.borders` *(dropdown, default: "None")* — Border styling for essentials `[macOS: All, macOS: Active]`
-- `wireframe.essentials.border_radius` *(dropdown, default: "None")* — Border radius for essentials `[0px, 4px, 8px, 12px, 16px, 20px, ...]`
-- `wireframe.essentials.corner_shape` *(dropdown, default: "round")* — Corner shape for essentials `[Round (Classic), Squircle (Zen Default)]`
 
 ### Typography
 
