@@ -126,8 +126,10 @@
   }
   
   @media (-moz-pref("wireframe.macos.controls.radius",1)){
-    .titlebar-button {
+    /* the option is named Squircle, so don't let a global Round shape flatten it */
+    .titlebar-buttonbox .titlebar-button {
       border-radius: 25% !important;
+      corner-shape: superellipse(var(--zen-squircle-value)) !important;
     }
   }
   

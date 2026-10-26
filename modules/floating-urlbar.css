@@ -282,6 +282,7 @@
   @media not (-moz-pref("wireframe.nogaps.enabled")){
   #tabbrowser-tabpanels > hbox{
     border-radius: var(--na-user-border-radius) !important;
+    corner-shape: var(--wf-shape-panel) !important;
     transition: border-radius 0.18s linear !important;
   }
 }

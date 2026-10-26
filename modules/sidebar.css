@@ -629,13 +629,28 @@ zen-folder,
 zen-folder > .tab-group-label-container,
 zen-folder > .tab-group-label-container::before,
 zen-folder > .tab-group-label-container::after,
+zen-folder > .tab-group-container,
 tab-group,
 tab-group .tab-group-label-container,
 tab-group .tab-group-label-container::before,
 tab-group .tab-group-label-container::after,
+tab-group > .tab-group-container,
 #tabbrowser-tabs tab-group:not([split-view-group]) > .tab-group-label-container::before,
 tab-group[atg-folder-look]:not([split-view-group]) > .tab-group-label-container::before {
   border-radius: var(--na-tab-border-radius) !important;
+  corner-shape: var(--wf-shape-tab) !important;
+}
+
+/* Everything else that belongs to the tab group: the tab box itself, the
+   close/reset buttons and the drag-over highlight. Zen shapes its own elements
+   with the global superellipse, so each one has to be pinned explicitly. */
+.tabbrowser-tab:not([zen-essential]),
+.tab-close-button,
+.tab-reset-button,
+.tab-reset-pin-button,
+.close-icon,
+.reset-icon,
+#zen-dragover-background {
   corner-shape: var(--wf-shape-tab) !important;
 }
 
@@ -645,6 +660,12 @@ tab-group[atg-folder-look]:not([split-view-group]) > .tab-group-label-container:
 .tabbrowser-tab[zen-essential] .tab-background::before,
 .tabbrowser-tab[zen-essential] .tab-background::after {
   border-radius: var(--na-essen-border-radius) !important;
+  corner-shape: var(--wf-shape-essen) !important;
+}
+
+/* Shape only: the tab element and its rim have no radius of ours to set */
+.tabbrowser-tab[zen-essential],
+.tabbrowser-tab[zen-essential] .tab-stack::after {
   corner-shape: var(--wf-shape-essen) !important;
 }
 

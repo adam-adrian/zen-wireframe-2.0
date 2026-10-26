@@ -7,6 +7,7 @@
   padding: 8px !important;
   border: 1px solid var(--na-color-border) !important;
   border-radius: var(--na-user-border-radius) !important;
+  corner-shape: var(--wf-shape-panel) !important;
   background: var(--zen-primary-color) !important;
   color: var(--zen-primary-text) !important;
 }
