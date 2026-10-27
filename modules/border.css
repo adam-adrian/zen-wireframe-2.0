@@ -163,11 +163,10 @@ body > hbox {
 
 /* content window border radius
    Zen 1.23 derives .browserSidebarContainer's radius from
-   --zen-webview-border-radius (see modules/variables.css), compact included. */
-
-:root:not([sizemode="normal"]) .browserSidebarContainer {
-    border-radius: 0 !important;
-}
+   --zen-webview-border-radius (see modules/variables.css), compact included.
+   This used to be zeroed whenever the window was not in sizemode="normal",
+   which quietly disabled the webview radius/roundness pref for maximized
+   windows. Zen itself keeps the radius in every sizemode, so nothing to do. */
 
 /* ====== WEBVIEW BORDER ====== */
 @media not (-moz-pref("wireframe.webview.border")){
