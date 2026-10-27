@@ -43,15 +43,16 @@
 
   // Compact mode: Zen sets zen-compact-mode before animating when entering, but only
   // after the animation when leaving, so the attribute pair alone cannot tell the two
-  // directions apart. Track when compact mode was turned on and publish a flag for the
-  // entering transition, so the theme can withhold its compact geometry until the
-  // sidebar is already off-screen.
+  // directions apart. Track when compact mode was turned on and publish which direction
+  // a transition runs in, so the theme can move its compact geometry while the sidebar
+  // is off-screen instead of at the start/end of the slide.
   let wasCompact = root.getAttribute("zen-compact-mode") === "true";
   let compactTurnedOnAt = 0;
-  let enteringTimer;
-  const clearEntering = () => {
+  let transitionTimer;
+  const clearTransitionFlags = () => {
     root.removeAttribute("wireframe-compact-entering");
-    clearTimeout(enteringTimer);
+    root.removeAttribute("wireframe-compact-exiting");
+    clearTimeout(transitionTimer);
   };
   const compactObserver = new MutationObserver(() => {
     const compact = root.getAttribute("zen-compact-mode") === "true";
@@ -60,16 +61,20 @@
       compactTurnedOnAt = compact ? performance.now() : 0;
     }
     if (!root.hasAttribute("zen-compact-animating")) {
-      clearEntering();
+      clearTransitionFlags();
       return;
     }
-    if (compact && compactTurnedOnAt && performance.now() - compactTurnedOnAt < 500) {
-      compactTurnedOnAt = 0;
-      root.setAttribute("wireframe-compact-entering", "true");
-      clearTimeout(enteringTimer);
-      // safety net in case Zen never finishes the animation promise
-      enteringTimer = setTimeout(clearEntering, 800);
-    }
+    if (!compact) return;
+    const entering =
+      compactTurnedOnAt && performance.now() - compactTurnedOnAt < 500;
+    if (entering) compactTurnedOnAt = 0;
+    root.setAttribute(
+      entering ? "wireframe-compact-entering" : "wireframe-compact-exiting",
+      "true"
+    );
+    clearTimeout(transitionTimer);
+    // safety net in case Zen never finishes the animation promise
+    transitionTimer = setTimeout(clearTransitionFlags, 800);
   });
   compactObserver.observe(root, {
     attributeFilter: ["zen-compact-mode", "zen-compact-animating"],
@@ -80,7 +85,7 @@
     window.removeEventListener("findbaropen", onFindbarOpen);
     tabObserver.disconnect();
     compactObserver.disconnect();
-    clearEntering();
+    clearTransitionFlags();
     gBrowser.tabContainer.removeEventListener("TabSelect", onTabSelect);
     for (const attr of mirrored) root.removeAttribute(`wireframe-tab-${attr}`);
   });
