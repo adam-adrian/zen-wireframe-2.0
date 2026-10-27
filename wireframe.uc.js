@@ -41,10 +41,46 @@
   gBrowser.tabContainer.addEventListener("TabSelect", onTabSelect);
   onTabSelect();
 
+  // Compact mode: Zen sets zen-compact-mode before animating when entering, but only
+  // after the animation when leaving, so the attribute pair alone cannot tell the two
+  // directions apart. Track when compact mode was turned on and publish a flag for the
+  // entering transition, so the theme can withhold its compact geometry until the
+  // sidebar is already off-screen.
+  let wasCompact = root.getAttribute("zen-compact-mode") === "true";
+  let compactTurnedOnAt = 0;
+  let enteringTimer;
+  const clearEntering = () => {
+    root.removeAttribute("wireframe-compact-entering");
+    clearTimeout(enteringTimer);
+  };
+  const compactObserver = new MutationObserver(() => {
+    const compact = root.getAttribute("zen-compact-mode") === "true";
+    if (compact !== wasCompact) {
+      wasCompact = compact;
+      compactTurnedOnAt = compact ? performance.now() : 0;
+    }
+    if (!root.hasAttribute("zen-compact-animating")) {
+      clearEntering();
+      return;
+    }
+    if (compact && compactTurnedOnAt && performance.now() - compactTurnedOnAt < 500) {
+      compactTurnedOnAt = 0;
+      root.setAttribute("wireframe-compact-entering", "true");
+      clearTimeout(enteringTimer);
+      // safety net in case Zen never finishes the animation promise
+      enteringTimer = setTimeout(clearEntering, 800);
+    }
+  });
+  compactObserver.observe(root, {
+    attributeFilter: ["zen-compact-mode", "zen-compact-animating"],
+  });
+
   window.addUnloadListener?.(() => {
     observer.disconnect();
     window.removeEventListener("findbaropen", onFindbarOpen);
     tabObserver.disconnect();
+    compactObserver.disconnect();
+    clearEntering();
     gBrowser.tabContainer.removeEventListener("TabSelect", onTabSelect);
     for (const attr of mirrored) root.removeAttribute(`wireframe-tab-${attr}`);
   });
