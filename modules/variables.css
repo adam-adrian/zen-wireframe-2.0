@@ -54,7 +54,8 @@
      with `round` (true pills become possible with a large radius). */
   --wf-shape: superellipse(var(--zen-squircle-value));
   --wf-corner-shape: var(--wf-shape);
-  --wf-shape-panel: var(--wf-shape);   /* webview, sidebar, titlebar */
+  --wf-shape-panel: var(--wf-shape);   /* sidebar, titlebar */
+  --wf-shape-webview: var(--wf-shape); /* webview (page area) */
   --wf-shape-window: var(--wf-shape);  /* window ring / background */
   --wf-shape-tab: var(--wf-shape);     /* tabs, folders, new-tab button */
   --wf-shape-essen: var(--wf-shape);   /* essentials */
@@ -133,7 +134,7 @@
 
 /* Per-element corner shape (squircle = follow global, round = circular,
    pill = round + oversized radius for guaranteed pills) */
-@media (-moz-pref("wireframe.webview.shape", "round")) { :root { --wf-shape-panel: round; } }
+@media (-moz-pref("wireframe.webview.shape", "round")) { :root { --wf-shape-webview: round; } }
 @media (-moz-pref("wireframe.window.shape", "round")) { :root { --wf-shape-window: round; } }
 @media (-moz-pref("wireframe.tab.shape", "round")) { :root { --wf-shape-tab: round; } }
 @media (-moz-pref("wireframe.tab.shape", "pill")) { :root { --wf-shape-tab: round; } }

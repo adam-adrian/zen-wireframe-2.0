@@ -215,7 +215,7 @@ body > hbox {
       inset: 0;
       pointer-events: none;
       border-radius: var(--na-user-border-radius);
-      corner-shape: var(--wf-shape-panel);
+      corner-shape: var(--wf-shape-webview);
       z-index: 9999;
 
       box-shadow:
@@ -301,9 +301,8 @@ body > hbox {
     )
     #zen-tabbox-wrapper {
     border-radius: var(--na-user-border-radius) !important;
-    /* webview shape follows the panel shape var (round by Zen's own design
-       only when the webview shape pref says so — default is squircle) */
-    corner-shape: var(--wf-shape-panel) !important;
+    /* webview shape follows the webview shape var (pref: wireframe.webview.shape) */
+    corner-shape: var(--wf-shape-webview) !important;
 }
 
 :root:not([zen-right-side="true"]):not([zen-compact-mode="true"]):not(
@@ -311,9 +310,19 @@ body > hbox {
     )
     #zen-tabbox-wrapper {
     border-radius: var(--na-user-border-radius) !important;
-    /* webview shape follows the panel shape var (round by Zen's own design
-       only when the webview shape pref says so — default is squircle) */
-    corner-shape: var(--wf-shape-panel) !important;
+    /* webview shape follows the webview shape var (pref: wireframe.webview.shape) */
+    corner-shape: var(--wf-shape-webview) !important;
+}
+
+/* The rounded corner of the page area is enforced by Zen on this element
+   (`overflow: clip` + border-radius), so the shape has to land here, not only
+   on #zen-tabbox-wrapper. This is also the element #6302 is about: Zen 1.23
+   pins it to `corner-shape: round` and keeps the superellipse clip out of the
+   browser stack because it blocks WebRender layerization. The global
+   `*:not(.no-squircles)` rule would otherwise hand the squircle back here, so
+   picking Round in wireframe.webview.shape is what restores Zen's cheap clip. */
+:root:not([inDOMFullscreen="true"]) #tabbrowser-tabpanels .browserSidebarContainer {
+    corner-shape: var(--wf-shape-webview) !important;
 }
 
 /* NOTE: the old "#tabbrowser-tabpanels + children inherit radius" plumbing is
