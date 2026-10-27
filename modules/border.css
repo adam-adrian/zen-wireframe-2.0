@@ -434,6 +434,17 @@ body > hbox {
     }
 }
 
+/* Toggling compact mode animates the sidebar margins, which resizes the webview
+   area on every frame. A rounded .browserSidebarContainer is masked (Zen gives
+   it overflow: clip), so each frame re-rasterizes the mask over the whole page
+   area; on this class of GPU that stalls the main thread and the sidebar layout
+   visibly lags behind the movement. Drop the radius for the toggle only - Zen
+   sets zen-compact-animating on :root for its duration and the radius returns
+   when the attribute goes away. */
+:root[zen-compact-animating] .browserSidebarContainer {
+    border-radius: 0 !important;
+}
+
 /* BORDER FOR MULTI TOOLBAR TOP BAR */
 :root:not([zen-single-toolbar="true"])[zen-compact-mode="true"] {
     @media not (-moz-pref("wireframe.urlbar.position.top")) {
