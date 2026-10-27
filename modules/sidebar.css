@@ -26,7 +26,7 @@
 
 
 @media not (-moz-pref("zen.view.experimental-force-window-controls-left")){
-  :root:not([zen-right-side])[zen-sidebar-expanded="true"][zen-compact-mode="true"] #titlebar {
+  :root:not([zen-right-side])[zen-sidebar-expanded="true"][zen-compact-mode="true"]:not([zen-compact-animating]) #titlebar {
     margin-left: 16px !important;
   }
 }
@@ -134,38 +134,38 @@
 }
 
 @media not (-moz-pref("wireframe.urlbar.position.top")){
-  :root:not([zen-single-toolbar="true"])[zen-compact-mode="true"] #navigator-toolbox{
+  :root:not([zen-single-toolbar="true"])[zen-compact-mode="true"]:not([zen-compact-animating]) #navigator-toolbox{
     height: calc(100% - 56px) !important;
     margin-top: 0 !important;
     top: 20px !important;
   }
-  :root:not([zen-single-toolbar="true"])[zen-compact-mode="true"] #titlebar{
+  :root:not([zen-single-toolbar="true"])[zen-compact-mode="true"]:not([zen-compact-animating]) #titlebar{
     height: calc(100% - 20px) !important;
   }
   
-  :root:not([zen-single-toolbar="true"]):not([zen-right-side])[zen-compact-mode="true"] #titlebar{
+  :root:not([zen-single-toolbar="true"]):not([zen-right-side])[zen-compact-mode="true"]:not([zen-compact-animating]) #titlebar{
     margin-left: 20px !important;
   }
   
-  :root:not([zen-single-toolbar="true"])[zen-right-side][zen-compact-mode="true"] #titlebar{
+  :root:not([zen-single-toolbar="true"])[zen-right-side][zen-compact-mode="true"]:not([zen-compact-animating]) #titlebar{
     margin-right: 20px !important;
   }
 }
 
 @media (-moz-pref("wireframe.urlbar.position.top")){
-  :root:not([zen-single-toolbar="true"])[zen-compact-mode="true"] #navigator-toolbox{
+  :root:not([zen-single-toolbar="true"])[zen-compact-mode="true"]:not([zen-compact-animating]) #navigator-toolbox{
     height: calc(100% - 56px) !important;
     margin-top: 0 !important;
   }
-  :root:not([zen-single-toolbar="true"])[zen-compact-mode="true"] #titlebar{
+  :root:not([zen-single-toolbar="true"])[zen-compact-mode="true"]:not([zen-compact-animating]) #titlebar{
     height: calc(100% - 20px) !important;
   }
   
-  :root:not([zen-single-toolbar="true"]):not([zen-right-side])[zen-compact-mode="true"] #titlebar{
+  :root:not([zen-single-toolbar="true"]):not([zen-right-side])[zen-compact-mode="true"]:not([zen-compact-animating]) #titlebar{
     margin-left: 20px !important;
   }
   
-  :root:not([zen-single-toolbar="true"])[zen-right-side][zen-compact-mode="true"] #titlebar{
+  :root:not([zen-single-toolbar="true"])[zen-right-side][zen-compact-mode="true"]:not([zen-compact-animating]) #titlebar{
     margin-right: 20px !important;
   }
 }
@@ -173,52 +173,52 @@
 /* Zen hides the compact toolbox with translate = sidebar width + separation;
    add the 20px #titlebar margin above so no strip of the sidebar peeks out. */
 :root:not([zen-single-toolbar="true"])[zen-compact-mode="true"] #navigator-toolbox {
-  --zen-compact-hidden-distance: calc(var(--zen-sidebar-width) + var(--zen-element-separation) + 20px - 1px) !important;
+  --zen-compact-hidden-distance: calc(100% + 1px) !important;
 }
 
 /* ==== COMPACT SIDEBAR - SINGLE-TOOLBAR ==== */
 
 @media(-moz-pref("wireframe.floating-compact-sidebar.enabled")){
   @media not (-moz-pref("wireframe.urlbar.position.top")){
-    :root[zen-single-toolbar="true"][zen-compact-mode="true"] #navigator-toolbox{
+    :root[zen-single-toolbar="true"][zen-compact-mode="true"]:not([zen-compact-animating]) #navigator-toolbox{
       height: calc(100% - 24px) !important;
       margin-top: 0 !important;
       top: 22px !important;
     }
-    :root[zen-single-toolbar="true"][zen-compact-mode="true"] #titlebar{
+    :root[zen-single-toolbar="true"][zen-compact-mode="true"]:not([zen-compact-animating]) #titlebar{
       height: calc(100% - 20px) !important;
     }
 
-    :root[zen-single-toolbar="true"]:not([zen-right-side])[zen-compact-mode="true"] #titlebar{
+    :root[zen-single-toolbar="true"]:not([zen-right-side])[zen-compact-mode="true"]:not([zen-compact-animating]) #titlebar{
       margin-left: 20px !important;
     }
 
-    :root[zen-single-toolbar="true"][zen-right-side][zen-compact-mode="true"] #titlebar{
+    :root[zen-single-toolbar="true"][zen-right-side][zen-compact-mode="true"]:not([zen-compact-animating]) #titlebar{
       margin-right: 20px !important;
     }
   }
 
   @media (-moz-pref("wireframe.urlbar.position.top")){
-    :root[zen-single-toolbar="true"][zen-compact-mode="true"] #navigator-toolbox{
+    :root[zen-single-toolbar="true"][zen-compact-mode="true"]:not([zen-compact-animating]) #navigator-toolbox{
       height: calc(100% - 24px) !important;
       margin-top: 0 !important;
       top: 22px !important;
     }
-    :root[zen-single-toolbar="true"][zen-compact-mode="true"] #titlebar{
+    :root[zen-single-toolbar="true"][zen-compact-mode="true"]:not([zen-compact-animating]) #titlebar{
       height: calc(100% - 20px) !important;
     }
 
-    :root[zen-single-toolbar="true"]:not([zen-right-side])[zen-compact-mode="true"] #titlebar{
+    :root[zen-single-toolbar="true"]:not([zen-right-side])[zen-compact-mode="true"]:not([zen-compact-animating]) #titlebar{
       margin-left: 20px !important;
     }
 
-    :root[zen-single-toolbar="true"][zen-right-side][zen-compact-mode="true"] #titlebar{
+    :root[zen-single-toolbar="true"][zen-right-side][zen-compact-mode="true"]:not([zen-compact-animating]) #titlebar{
       margin-right: 20px !important;
     }
   }
 
   :root[zen-single-toolbar="true"][zen-compact-mode="true"] #navigator-toolbox {
-    --zen-compact-hidden-distance: calc(var(--zen-sidebar-width) + var(--zen-element-separation) + 20px - 1px) !important;
+    --zen-compact-hidden-distance: calc(100% + 1px) !important;
   }
 
   /* Zen places #zen-dragover-background from the toolbox edges and the target row's
@@ -275,6 +275,13 @@
 :root[zen-compact-mode="true"] #titlebar {
   padding: 10px !important;
   border-radius: var(--na-user-border-radius) !important;
+}
+
+/* Entering/leaving compact removes that padding in the first frame, while the
+   card is still sliding, so its contents reflow ahead of the movement. Ease it
+   over the same 100ms as Zen's margin animation. */
+:root[zen-compact-animating] #titlebar {
+  transition: padding 0.1s linear !important;
 }
 
 
